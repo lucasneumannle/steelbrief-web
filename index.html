@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!-- saved from url=(0064)file:///C:/Users/lucas/Downloads/steelbrief_landing.html#pricing -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SteelBrief — US Steel Market Intelligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index_files/css2" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -22,7 +21,7 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.07)}
 .nav-inner{max-width:1120px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo img{width:36px;height:36px}
+.nav-logo svg{width:34px;height:34px}
 .nav-logo-name{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:700;color:var(--white)}
 .nav-links{display:flex;align-items:center;gap:32px}
 .nav-links a{font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;font-weight:500;letter-spacing:0.02em;transition:color .2s}
@@ -39,7 +38,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.9
 .hero-label{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);color:var(--orange);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:20px}
 .hero-label span{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-.hero-title{font-family:'Playfair Display',Georgia,serif;font-size:52px;font-weight:700;color:var(--white);line-height:1.12;letter-spacing:-0.5px;margin-bottom:20px}
+.hero-title{font-family:'Playfair Display',Georgia,serif;font-size:50px;font-weight:700;color:var(--white);line-height:1.12;letter-spacing:-0.5px;margin-bottom:20px}
 .hero-title span{color:var(--orange)}
 .hero-sub{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.65;margin-bottom:32px;max-width:480px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
@@ -57,7 +56,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.9
 .ticker-meta{display:flex;justify-content:space-between}
 .ticker-origin{font-size:10px;color:rgba(255,255,255,0.35)}
 .ticker-chg{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500}
-.chg-up{color:var(--teal)}.chg-down{color:#E24B4A}.chg-flat{color:rgba(255,255,255,0.4)}
+.chg-up{color:var(--teal)}.chg-down{color:#E24B4A}.chg-flat{color:#F59E42}
 .card-footer{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center}
 .card-source{font-size:10px;color:rgba(255,255,255,0.3)}
 .card-badge{background:rgba(29,158,117,0.15);border:1px solid var(--teal);color:var(--teal);font-size:10px;font-weight:600;letter-spacing:0.08em;padding:3px 10px;border-radius:4px}
@@ -120,8 +119,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.9
 .preview-table td.r{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:var(--white)}
 .preview-table td.up{color:var(--teal);font-family:'IBM Plex Mono',monospace;text-align:right}
 .preview-table td.dn{color:#E24B4A;font-family:'IBM Plex Mono',monospace;text-align:right}
-.preview-table td.fl{color:rgba(255,255,255,0.4);font-family:'IBM Plex Mono',monospace;text-align:right}
-.preview-blur{filter:blur(3px);opacity:0.5}
+.preview-table td.fl{color:#F59E42;font-family:'IBM Plex Mono',monospace;text-align:right}
 .preview-locked{text-align:center;font-size:11px;color:rgba(255,255,255,0.3);padding:12px 0;font-style:italic}
 
 /* PRICING */
@@ -155,31 +153,47 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 .footer-inner{max-width:1120px;margin:0 auto}
 .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;margin-bottom:36px}
 .footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.footer-brand img{width:32px;height:32px}
+.footer-brand svg{width:30px;height:30px}
 .footer-brand-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--white)}
-.footer-tagline{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;max-width:280px}
+.footer-tagline{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;max-width:300px}
 .footer-col-title{font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
 .footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
 .footer-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .2s}
 .footer-links a:hover{color:var(--white)}
 .footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.25)}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  .hero-inner,.dark-inner{grid-template-columns:1fr;gap:40px}
+  .hero-title{font-size:38px}
+  .features-grid,.pricing-grid{grid-template-columns:1fr}
+  .steps-grid{grid-template-columns:1fr;gap:32px}
+  .steps-grid::before{display:none}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
+  .stat-item:nth-child(2){border-right:none}
+  .footer-top{grid-template-columns:1fr;gap:28px}
+  .nav-links a:not(.nav-cta){display:none}
+}
 </style>
 </head>
 <body>
 
+<!-- LOGO (inline SVG: navy tile + orange I-beam) -->
+<svg width="0" height="0" style="position:absolute"><symbol id="sb-logo" viewBox="0 0 36 36"><rect width="36" height="36" rx="8" fill="#0A1628"/><path d="M9 9h18v3.2h-6.4v11.6H27V27H9v-3.2h6.4V12.2H9z" fill="#F97316"/></symbol></svg>
+
 <!-- NAV -->
 <nav>
 <div class="nav-inner">
-<a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#" class="nav-logo">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHgAAAB4CAYAAAA5ZDbSAAArK0lEQVR42u19d3hVZbb+u769Tz/JSSGBEFoCUaoUwUEpoQVCb4IooqhYRnEso07xzjjMjKPjODYUUcECFgRp0otA6E2KtNBrCASSnJxe9v7W749TkqBzf/d5rhdBz/s8mJjkJPvs96z2rrW+AySQQAIJJJBAAgkkkEACCSSQQAIJJJBAAgkkkEACCSSQQAIJJJBAAgkkkEACCSSQQAIJJABQ4hbEIYB8Efm0iAFIAJy4Ldc/FGCU8sPfGqUA+WqE/IQFX4fEImapaJB7YxtFtTxERB6h6Ev8lZd2lZaW+mrfq3zlerPuXxrBBIwSwJw4QQ1zW3YlxfgbXyA0LBgKG8ASQggYjYZTZpNxo0K0UmjBohMnDp75vnUDNX9XguCf9HnmK0CRFvtCduMWA4TB+Bt/MNwvEAiiYXZd3Dt2lJaWmoLlq9aJ7w4Ui7LLFWDJMBgUr9lk+NZgUFZCl9/Yju3bdRAIVf/6FwSwTgBFMbI5QfBPQ6yhQW6rkRDqb/yB0K3BYAg3NmvC4+8erY8ZPUKpU6dO7J7whQsXeMe3u+Q3azZg8/Zv1ZOnS+APBKGqCswm4xGTUV2nCl4uNO/GY8eOXar9Z/PVa8WV/1wJjmbEEWJTU1MdyekNxmoQv/b5gq01XUOblnnywXvv4lEjhwmb3Q4ApGk6AIYQAkJU51WBgJ/37Tsg167fxOs2bFEOFB+lSqcLAGBU1QqL2bhFVZUVipBrjh/ae+D7rryMgCL9f0B27Lr1H+uFQT8/YkcRMEcHgIyMjHrm5Hr3SxIPe32BRlLquKX9TfojE+7B4EGFitFoAgBomsZCKERUfVdYMqSUDCJSlVpJNp86dZq3bN0u1xRtoh27vlPOlpxHKKRBVRXdYjHtNxkMa6Dryzns3H769Gnn/4ADAYxC7LoTFvzDpQ6qiW3Y1JyS+pCm4T6vP5ChKgL5XW7RJtw3VvTv10cQiRixEIoCQcQAwMxERMxginrqKNsMKRnMEopQQCJ+29jtdvHuPd/Jdes3o2jjVvXQkeOocrlBREiyWS4SeCOkXIFw1fzS0tLy2OOu9DIEoFmDBtluxX6HIF5y/tThw9HyTP6SCa5V6tSvn9dOsdoe1XT9LrcvYLNZTOjbq5v20P13i65dbov5XNZ0nVRFiZAKJkKEVAIxc01ya9yo6IsAAHQpwVISEUGJWDcDgJQ6Dh4q5t179sn1m7aKb9ZtEiFNgojgKr90t6v8zOdAYxNwOhS75jcLYXppX26vCr/lbptNHWQzITnsrsy9ePHMyR+DYPU6LnV0ADoANGjSojsZjI8HQ9owl8ujpiTbMP7OYdqE8XeLtm1vUgCQlBIyYoGkKAoiRMbMKUJq5ON/NAFiMMCAEARQxG1LltA1HVJKMplMaN2qFWXVqyeOnzzFuq5LqcuwEKRUW+7pgACQ07Rhqwsu66hndhrvcNiU5rfnawiEgLV75KGKR86cpklxS8cvheAaGXHEFdfPaT5INVieCATDfbxOD7Iy0zDhnjHa+HF3KHl5eQoA0vVIWBNCQCEFiFF5hXXG3TMzARz/WsxLg7n6Z6MvBMkMlhIGg4EA4OjRY3hv+if82ewFuFBygerWr0eqqioAqQaF3WNvSUtecT7jdk9AHXPRq/RsmSvUAe2DGN7WrbdtHdQeeTvN6PbxMWUSZCQ5+9/HZPX6IrZIA2Bq1LTVaCbDY/5g6Fcurwu5jbJ57B0j9LvuvF1pkJ2tRuKrzkSAEnPFXNM6q11wTdf7vT9M1S6bYzbMTMwMyQxVUQAhcPjwEbz/4QzMnreYz509T1n16+GRh+7hLdt3ofTCJcVkMiIskv4w54TjnXrpxgYFN4cwqqMPha2CmsUqBfykyEsK7ztjIIMI7PMDQH4Zoeh/f/OuZYJrZMRFWnJycpojs/E9DPGQxx9qEQq70ap5U/2+cWNwx+3DlZSUFKU6IxZQVQXMHCc2RiSDiWtaaM30uMbPxiw6+g0AFMmsmVlVFBIAig8f4femfYI58xdTSckFZGdn0QPjx2D0yCEwm80o2rAFRET+INCqiaHz8E4BDG/v1ptlaYBOAn5SQ04FqsooCwhcrALMJvmdH8CPQe61SnANYuegfv36DRVbxgNS0gS3L5DNUkfH9q31B8ePpSGDBygWiyWWEZMQIpL0ROodrmmsUcK+98dqEVkrJkc/EkFKHWBAURQIgA4VH8b70z7h2fOX4Pz5C5SdnYWH7r8Lwwb3R25OYzCAPXv3IRAMQSgCUx7wYERHn0QYQJgU3SXAIAjBEAQII/PR04pS4WZOMYUPVQKIqmI/K4JrZMRzUK9Rs5YGk/VRTcddVe5AqkEh9Ox2i/bQ/eNEv4JeSq1SRwhWFCUeQ6kGuQRipjhh/7l4qJU4E0DVpVGsDi4uPoypEYvF+dIyapBdDw8/MDZObCAYQqXTBQajTeuWyKqXgYNHTmPyMjMaJmuiU04YWpBQI/GOssBcfEEV/iBfGtCq6tTJkz9OgnUtEFxT/NcjGnHzzqrRPDEY1m93uvwmm8WEkYMLtAn33S1uu/VXCgBiBjRdg6pEiI141R+IpVyDZGZCzbw5yvL3HkeAlBIsGapaTex70z/B7HmLcb60DA2ys/DQfXdi2KBCNG2ag0AghIpKJ5gBs9mEJLsNZ86cJWeVi81GBd+dVlD4SjJeGuPFg90C0P0ERdS4SAE+eEGFlPLErBUVLvxQnXadEVyj1IlkillNmvdVFfPjQU0b5HR6kJ6ahDtGjtQeGD9WadO6tQqApZTEHJESI6VObZKujKnx0ieWCUdFi++54+iXYlmxqqiAAA4VH8Z70z7hOfMW0/nSi8jOzsKD48dg2OD+aNY0F4FgEBWVVWBmmE0m2OxWXLhwEZ/N+gqLlq6Cy+0lRVWRZJQodxOSjNHowYCUkc8FAdCIj5aqEKwdCDOA/HwFRdWNkeuJ4CtLHSU7p+UIUoy/CYbCXV0+Nxpm1eVHJ4zVx901WsnNzVUBQNclAKZIRlwjq40mS9VJb8RSa5IWITceiEE1OY7dbGZm5qgkKXCouBjvT5uBL+cvRun5MmrQoB4mjB+D4UMGRIgNBFFZ6QSDYTSaYLdZUVZ2CbPmzMPCJStx/sIlWK1WqKoKVTAuOAm/G+zHnfl+aBUCqgGACUAIkDrg8RJOX1ZgMIQOBK5fqbJWXWdt3OymMRqLx/3BULtQMIi8po3lvWNH8Z2jR4rMzAwCAE3XI0KtEFFXG/O6FEuQamXHMVKJCFyzbo0mWHxFaJN6JI+JqlE4VFyMD6bP5C/nLaLz5y+iQYMs9C/oieFDCrlpbg4FgiH4fH4ADKPRCLvdhsuXL/PXS1bQwsUrca60DIpQkJxsh5QSimBUegg9WoR4/pMukj6Cwcw4cknFCwus/K/RXjSop9F3Rw16v9dSFEXzDSg5fWRZNB/RrycLJmCO7nA4Ui0pWeMZyq8rPP48lhLt27TQH7jnTowYPlgkJSVRrKsjRFwGjFgeYkRVR9F4qRNlvkbpw1e+eGMqVOyFEa9jARw8eIjf/2gmZs9bhNLSMmrQoD4evO8uDBtSyM1ycykQCKDSGXHFBoMRSUk2VJRX4LPFyzB3wVI6U1IKs9GE1JRkNM/LxaHDx0FgBIKE+mk6T73fQ0IjSABhIjw1y8rLd5lo9ylVznjMxeVuVXF5ZbhlRuBwCX68BOtqEUwAkNnwhicVg+kZRTFmq6pA7x5d9LvvvB29e3aPd3XCmgYlVurE++b0H51OrcTpio/V7jpm7tEYGyVWRC32/Wkz+MsIsWjQsD49dN9YDBtSyE1zcigQDFJFpRMAk8FgQJLdjsrKSnzx5XLMX7QCh44ch91mQ4rDAUUQXvnbHzkjI53uHP8Yq6pKIcmYMt5D9R0SwSoBU7rE87PtvGafiRpnaHzZrYrRrzuQm8XSZpDn6/iNJbgOCY76SuUZg8GU7Xa7Q7lNGqijRw4W+V1voxi5MVcpdR1CRNxszBlHxENQPJaCQDHBsToCRwmn6to2+vM/YLER5Wn+EpSev0gNG2bjkQl3Y+igfsjNyUEgGKRKZyQrNhhU2O12uF0uzJm3EHMXLsWB4mMQQqBb544IhkLYf+gosrPqokOHdrRk2UpoWpBcQRP+PsqNXq3DCJQLmFMlvt5p4skrLHpGslRdbs9Qq9lYP6iZ3jh41mw2qJ7Dy48dC0amQybJ64ngqLXJSmbOatQgSz124rQYNuIe1GtQHz263coD+vVGty6dqUmTJhCqGhePdE0HCYKIEhWJtzVUjJp9H47ZKsfJjipZMYECh4qL8d60SLlTWnoRDaLEDhtUiJycJvAHAohaLAyqAfYkG9wuN+YtWIQFi5Zj7/7DEIpAp/atMWRgPwwb3B//fO1t7Ni1D1arBYcOFeOd96bDHbBg1G0BPFXoR8hJMNskTpQpeHymVbObyRAO+v9Rfv7konIAdeo33m4y88xQWD8NAMhfJ1AEed0lWZkNWxw0mEwtls2fqXs9PmXJitX4Zu1G7P5uPwJuD+rUq4sunTvygH69kN+tC9144w21Hq9pGogomnDFsuLvixREgJRXWOyhQ3h/2gzMXrAEpecvomHDbAzs1xNDBxUiN6cJ/IEg/AE/wAxVNSApyQaPx4PVa4p47sJl9N3+Yggh0L5tS4wcOgA9uneB2WSBUAgv/vN1zFu0Es1yGnFykoV27TuJ5o1MWPU7JxxCQkqCNAED/52s7TplVm2qd+25E8W9I9WEh4BvwwDsSXWys9yXS47+mDXw1S2TogKCwWCkzp1bo3PnW/CX/9Kwb/9BrP6miJevWktr12+mhfMXc3KdNNzSsT0KC3pwQc98atO6FVS1+lJjHSISBIKI3w8pJRioEWMP4/3pn/CX8xZTaelFNMiuH7HYwYXIadIY/kAIEVccJdYeIXbhoqWYu3A59u4/RESEju3bYMSQ/ujRvQtsNivcHi+qXFVIS02FIgRURUFFpZNKL16GzWbBu+OrkGaRCLoJpjTGc5/b5ZajJqWOPVh2qdwzDtVSpIz2fD1Rcn/U+HvV62AigkE1sKbpCIVDsJjNaNf2JrRrexM98/TjKC4+jDXrNmDZyjW8edu3tHr5N2RxJKNjh5tQ2KcnF/TKp/bt2kA1GKstW9fjXXullqT4Mc+Zv4QikmIWHr5/LIYNLozE2EAwlhWzqqpkt9vh83rx9ZJlPHfBMuzdf4gAws3tWuP2oQPQvdutsNns8Hg8cFa5oCgKFKHExU8Gw2hQUO4hvDHOg1vyquPu7K1mnrLKLOsk6UrA7b3bX3Gu5IoySEatlv63zf2flGAiwbqua+dKznHTpjlCVS0UbetB0zUYDAY0b34jmje/kR59ZAJOnDyJdes38bIVa2jjlu3YsG4T/cX6Gtq3bcUFPbuhX0Ev6nhze0SbDYQaFjt73hKKNQEejAgU0To2iAqnE2BAVRXY7Xby+bxYvHQ5z12wlPbsLwaYqd1NLXH70AHo2aMrrNaIVVdVuaBUS6OQEdWEDAaVVQEqqwLGdgngoV4BBCsFzDaJ4lIVT39m1VLsiiHkc/2prPTkqujEpfYDiSj/HznOq4O6jVoeNpitNwiSaNu6OQ8qLND79MoXubk5omacBRCbk4o/tqSkhDdt2UbLVq7Bug1bcOrEGZCqoHXLG9GvTw906dwJRRu3YNZXC3Hh4mXUz6qLAf168ogh/alpbg4CwRD8/kDUFSuw2+0I+P1YW7SR58xfTHv2HYKUjHZtmuP24QPRM78r2212cns80HUJRRGxfB4c+8iAzWbFM7/7L1635QC1a2bgFc86yRoRzBA2AP1eSdYOlFhUm+pbevb4wYFRcnVcxVFaulp/I6N+XluhKrcDYnAgFL5Jl4y0lGS0bdOc+/bqzn0Leokb8vIgpYwrUVIyhKBaI6wVFRXYum0nlq1YjdXrNvLRYyfJarUCREhxJKOgV1eMGDIAec2aIhAMXkGsDcFgEOs3bsHsuV9j196D0KXETa1uxMihA9C7Z3ck2e3weL3QNB2KEByTzSjWo6LICzE9PQ0ffvwpT35vBiU7HFj+rBNtssIIegRMaRJPzLTJaWvsoo49eLaitLyDx3O+PJodyqsaFn+Kfm+zZm1uCRENCwS1gaGQ1lqXOowGhV/8y+/p4Qn3QZeR9ZGYaKxLCS2sQVEUGAzVUcXr9WLjpi088ennye3x4sUXnkOvHt3hcrsRCAQRmXFWkGS3IRQKYuPmbfhy3iLs3L0fmqahdYs8jBjSn/v07I6k5GTyeDxRIUSN5uhM8ZsU9SiapsHhcGDLtu343fN/g0ezYtqDHtx1WwCBCgFzmsTnm8384Ad2vU4yC7/b3f1S6YlNP6b8eK0SLJCfL67okqiNm7XpKCVeCErqZzOrcsfGlSI9PZ1kjOQrECE7DBDBZDTC7/Ohw20FuFxRgffe+ic3bZpLXq83UsfabQiHQ9i0eRvPnreIduzah7CmoVXzZhg+uJALeveg7PpZCASCrOsaEQn2BwIIRRv1Ne8REUHqEiaTERWVlXj0iWdx9JwfTw7U+V93uShYIWCySRRfUtHrpWSNSFX1kOv3F88c++d/iLtXBVczi5YoKopljALIJyCTTx+bs9VRp+HK5LS6haFwUFZWOkV6ejpAhJKS83h44m9ZURUM7NcHPXt0pbxmzaCYTNGyCFzhrCLmiL0Fg0EQCI7kZLCU2LhpC8/6aiFt+3YvhUMaWjZvihFD+qOgVz4yMupQMBTiteuK6OChIwjpzHXrpOLWX92MzLpZcLncENWJADMzSBCRILz8rzdw9LQTfTqY8eJIN2kugqIyfJLw4Ic2PagZVYviXfRTk/tT9YM54qqKANxsiNazNsmR2BuzHEGENevWY8mKNZSWloavl6xGvcw6/KuO7ahvnx7o1aMbN29+I2XUSY/U2Cxhs9lgs1mwrmgjZs9bxJu37aJgKITmebkYMbgQhf16I8XhQDAUQumFi/j3G+/QkjU7ISAp2Qo4vYz0FAeemTiOB/TvD7fHDSXiRUjTJdJSU/DG5ClctGUPNclOwZR7K2BkIKgBplTGUzPsctcJk0i3+45WlZWMj7Y2JX5C/MQTHfYI2ZJldG7qivySYLVakZmRjp7dOuO7/Ydo8Yq1WLh0FTIz61Dnju34tl91hK5LUlUD9uzdh49nzuKVazZSMBiiFjc2xdCBfTGgsDfS09Lg9njhrHLBZrXgldcmY9HyrbinXzIe7+dHllXHSZeCF2YH8ewLbxIR8cAB/VFR6QQRkJ6WimUrV+Hz2QvJaE3Bm2NdyMnQEayMJFUzN5h5+hqTzEyF6nYFt7lcrgrk91BRBO0XTHAsOkfVZq6dFxBFhAwhCL/77WMIhcLYsXMXNm/7Frv2HsDSleto0bI1qFs3AxazBa+9PY3cHh9a3tgMwwb1xYB+vVGnTh24vRFiAcDhSMLWLduwfM0OjMh34JOHK4EQA2EgOz2EhU9p6PmiDW9NnUm3dLqZ69XLImbGkWPH8MbkqfBJO/480IcBHYIIVgiYkiT2n1Hx7CwrHFZmKQlEwgiAkJn5k6+RXjNDdz+wUxAdxiBIyXC5PJyZmUGF/QpQ2K8PLlwow97v9mHDlh3YvWc/yisq0ahhNoYN7ofCgl6oUycdHo8PFU5nvAWp6zoUoWDvvv0Ia4T7uwcAnRH0EgwqEKoi2NPCGNtFx1PTQ3j6ueepb59e6HhzO7z5zlScvRjE8C4G/HGID+EqgmpkeDSBBz+0cTgsyGZmg+RoX/IaWQu6NgiWsuaqQfXN4XgjH0JRSNM0+Hx+EBFSUlJQ2K8A/Qp64+y5Ej52/AS1ad0S9erWhcvtQWVlFRRFQBFKdKg5EgKEIEgGhMKwGQGWgKJEmo8GFdC9AgPaBrG+u4qV35Zj9+RPYVS/gE8zoEVjM94a6wRCAEuC4pB4ZrpN7jtjEum2UElIwyWD0dgOQBCAxIlUQySZjOvOv1QX/d8UcfEZWAZArCiCiAiaFkZVVZAjnjCDGjbMZp8vgPLKSopabGyrLD4yqygqfH4/Hzt2nCSbcPyi5B4tQFIHhABiAyQ3JOuYN9GFlQeNeGWxFalWRo+WYfTI86GeXSLkIRjTJD4qMvPMDWbUSdJ8fmf5HWZH5tMkRDuDyZTdsWO3hjt3vn+29rPJV6422deIBQtUDzN/b1QAxHFdn+L3ioDYTm84HEYwGCISxKqixDuJXN0oJl2XSE9LxZtvv0sr1+/Fba2TMKSDk6SPYLQyoDLcbgF/mJBZRwfchL43BNHniTCEYMDIQADQfASjjbHnpAF/+NLKKTYS4ZC2U7WmPlXp8gwzqn4pmXsfOH7mUHqDFptsVuPXaVbzyj17th2tUS7R/0Xn6Jq2YL6S1Vr/G/XTNeaao5Me0TBNEEq16BSViynWwtI1DWmpqViybAVmfLEAmZkOTLnHiQyrDgjCH+fasPusAU6P4Ao36ME+ATzYLQgH6UCYIQHofoIQEUsPM+Hpz60IhoRw2IAKT6i7qigYUNADj//6Afh8Pp739TLb5m07+545W9q3vKIqlFovb7tqFF+TDC8vO3di3y8syZK1twqu+JSEiDQfuPb3qXqGIxZn49pxNAtnXdfJbrfjYPFhvDZ5KoKw4+07PGjbIAwA+HSrEa8vswCaHwpJstutmDTHhk+KTHh6gB/jOwXBYUCtseSvMsAsANbhcvlR0OM2PDnxIb1b1y4iFlj6FvTmqiqn3LBpKy9eusq467uDXS+VV3QNBQL/qJ97004ZCvzmwrkjO/+v2oT/v+h3bQRhjnhmIQgkqFaRzBxvsVUn4ATi+KpYJJlVDQZ4vT689Mq/+dwlDQ8XaBjXxQ+ECMWlKv4wOxkmeFDQ7SYuyO/ErAVgFm6UXBb482wLPGECE6AzIKP/dCJU+STSHHbM/fwDzJ31CXfr2kXRpSRd16HpOsKaRg5HijJoQKE69e1/8weTX9br162jBUMaDCZLZ1KNnSPXny9+/hYs5fcD7w8bM6PaK1N8Cj5GdI2haQbAkslqt2DSv1/Czn1nqNtNdn5pZAVJLyFsAB77NBkVziCa52ThT398Dna7jY4ePY55Xy/F0hWr4Q1aMW2TiZ8a6ic4ox4kReKLDUnYfdiH3z42FD179EBY00gQsRCCOOI2YIhOoJw8eQrvT5+BmV/OU6pcHmTWSQsHwyFdKBQEAOTjR9skvKbr4B9sgHDtdJpRMwpX518xkpkQF491XUNaWho+/XwWvl5WhOx6KXj33kqyAoCN8ecv7bzlsEIplhCeeXIibDYbVVY4kZOTgxdf+ANKSy9i196DeHVpMoU0gZE3h2BUGau+teHPXxpQJ4XxwH3joOs6RGRWjHRdh6qqEKqKCxcuYNpHn+L9jz7D2TMl1KrVjXj+2Yk4X1pGk9/7RElPtl2VOvlaUbKqh1boP5yiQLVzrhprDrH/Uqyk0jUdycnJ2Lp1O6ZOmwkyOvDaXW60qKsBDMz/1oSp31jJICsx7q5x6NChLSrKK5GalopwKIQly1aiyuWB1+9DMBjEn780481lNiiCcf5SCGbVj/feegktmjePjQyBiKCqKiorKzDto08xdfpMPnH8NLVocQP+9sJz6Ns7Hw0bNsC0jz+NxJAfapX9rJOsuF/9ARWIKNZwj7hkipdN8UQrFpVZMpnNJly8eJFffvUNlHsN9NywIEbeEgB7CWe8As9+kQQZcuO2ju0w9s7bEQ5rcDiSsX3HTnw2az7WbtgCo9GAMSMGc1paCtZv2EiVVT4IIgwuaI3HHnkQBb17IRQKwWiMzId5vR7M/Hw2Jk/9CAcPFKNZXlP60x+exMDCPkhLS4WzyhXZZ5LRCoD5F2TBtc6DI7rSWQui+GBFvAqiK+vJyBQIRSdAXn71DRw+7aTCTmb8ZVgVdDdBWoBHpyah9LKGumk2/OmPz7DdZqdtO3byrK8W0spvNkDXJYYM6IOnJj6Mrl1vIwAIBPxwuVxQVRVpaenRECBhNBoRCgbxxZx5PHnKdPp213do2Cgbzz79KIYNKkRGZgY8Hi8qKqug6zrMZjNsNgsky+pEo+gXYcE/GIGrqSPUOJsqzmxsrZBjRq7rOtLSUvHW21OxbtNeymvowLv3VMAQBiiJ8ff5NqzZp8Jh9uO/fvcsQqEQPff8JKz4Zj35fAEU9OyCJyc+hMJ+BXESAYbZbIHZbIl+TY8M0hNj7vyFeOPtD7Bx83bKrJuJxx4Zj1HDB6F+dn14vT5UVjjBFNmOSE11oKKygnftPaAZTWZV6prll9RsqGmPtVx0nL24blHjQVwtZ2iahtTUFCxbsYo//XIBWewOvHVPFRqmRGLk6n1GvL7UArvBj/Zt2/DefQfpqd//FS6XB91u64QnH3sQI4YOYghBsc1+oQiACZqugRBZhlMUBUuXrcCbUz7AqjUbkZLiwITxd2HUiEGc06QJ+QIBVFY6I0c+qAqSkuxwVbn4y9nz9Vlzv1bLLjvNZpPhYsDn3hV5nkX8Myb4kgBeEEzTtP9kw7UNmqMbo7W6EqTrEna7nYsPH8Vrb71LPt2Gv4zwoaB1CLqHcEkTeGyGDSYVsJrt2L3vMC1fWYRbOrXDbx6dgFEjhsJoMoGZKdJxEiASkNHyTVUit2ntuvV4850PsHjFGljMZtw1ahjuHD0UN+TlcSAQpEpnVUTzFgJJdjv8fj8vWrxc/3zOAvX4qXOqyWh0mY1iSqj0/Btl3rKL0aen/xwJjh20EgImwWBomhKZpPy+BUd3kqIt49pbHdGj6WAwqPD5/fTSK6+h5LKG4bcq+N3ASEvPkAw88Y4NZVVG2IwhXLzkRLOcRpj0x6cwbuxoWK02AJH57Ej3SaDmThMAbN6yDW9O+QALF69kEkSD+/fB3WNGoE2rlgiFw6h0VkXP1hJIttuhaWGsXrNO//TLeaL46CnVoKpBh90yHUH/q2eOHzlZQ92RPzcXXesEncbNWrSXwvRbjycwIhgMSLNRVf+boFxz97ta9pAMq92CSS/+E7sPnOIWjZPp7XHlYB9gcDBeX2bF4l1mGGUFrI4MPPHrBzDh/nuQmpoaJTYyramoCljKWjtNu3bvweR3p/HseUtI0zT0zu9CY8cMx80d2kFKiaoqFyQzBBFsdjsIwJat2/WZs+aKPfsOK4pC0mG3zpT+wCtnjsZOoY3PRsufWwyOvmLnIKtR05tVk/1pty94RyBYpXRq3waBYAgnTp6Oqo01OayxuB0pheIJtaaHkZaWhs++mM2Ll68le3IqTbm3EpnWiLa9+YgRL35th5ncePCBcfzkxEeoXlZWnFihCCiKCmYJGRMpEFlWm/zudP589gLyeH3Us+utuHvMCNzSqQNICLjdnng1Z7NZYTSo2LV7r5zx+VfYvnu/AmYk2c3zZTj80ukju3dErn6UAszhqz2AdxU3/CHrZDXqYLQk/zYY0u9wVriV1i2a4uH779bGjb1D+c1v/4j9B4upxrjqD6TU1e1CTdOQnJyMHTt34f0PZ1BYpODF4W50vTEMzU1wkcDEmQ64nE7cNaKAX35xElUTG7VYjiheqqpCCIHjx0/wlA8+wieffUUVFU7qemtH3DV6GLre9iuoqoHdHi8xRwzPYrHAbDJh/4GD8rPZ83nD5p1KWNNgs5pWqay/eOrInqLaxM7Rf4pYeLU2/DmzcYu3DAbTRCKFcpuk8x+fnagNGzJYAaBKZgT8gdgE4/d1aarxi8AIhzUkJdlRXl6Ol199HZfdCu7OD+HxvpF9XGMK4+n3bTh4OoxmjdL55X9MougJsVBUFWCGrlXLiiXnSvDutI/x4YxZKL1QRp1ubosXfv8k8rvfBpPRBLfHA+kPxI9JslosOHrsmPxi9gL5zfotaiAYgs1s3mY2iL+fObp3ceRqXxDAJPxUxF5NgmOp0zBFUenSpUshg0qGrdt3K0lJydSxQzs4HA6YTMbI2gp+uO8Qq0sVRUF6WjIulpXx3156lY6eKkeHPCteH1vBmpvImMKYutqCr7ZZYKLLmPTnv6Je3brQovWrrkUsVlVVXL58GdM//hRTp8/EqZNn0aZNCzz9+EPo3aMbrDYbPG5PZEOCAaPJSDabFWfOnJWz534tl60qUt1ev7BZTAdTbKaXTh7Z8xni50CDgEk/KbFXPQazlC6Wkp9/dqLy7e599NaUafzPVycjLy8XY24fyqUXy8hsNrGsFnk4cmgDRY8/IqSkOHD58mXM/mo+f7VwKVU63UhNtWHqvU44FElQCLtPGjBpQRIjWI7Ro4bSqJHDKbbUFtOLXa4q/mTmLJrywSdcXHyM8m7IxaQ/PYP+fXvCkZIKt9uDqqqqyBaiQeUku50ulpXxjM9m6QuXrFYrnC5hNZtPOOzmf58+sudDALHTj36S9ZRrgmASQuhSpwfG343nf1+PT5w4iVVr1mHugiV4bfL7FArrsNss8eXumLzBzBCKAmaJWXPm8RdzFuJsyQVyJFkRZCteG+3idk3CFHYRAgbCr2ckwesNUpOG9fgff/2v+MEuQggEAn588eVcvPXudNqzZz8aN25Ef3h2Igb2L0BGRgY8Hi85K50MAgmhIDnJjqqqKnz6xWxtzvwl6vmL5arVZLzosJnedJeffed8RYWrRpzVrzVyf5I6+HJ5BTIzMyk3NwcP5+bg4Qn34eixY1i+cg3WrFsPg9EQO/8K4XAYqqrA5wtg4tPPU/HRk7BaLMhIc6C0gjG+px/3dgtQbPj8iY9sfPCMSgq78PdJLyMjIyPabtYx+6t5eOOdD7Bl67eoV68uHn/0AR4xdABlZ9eHx+OF0+kEACYhKDkpIlIsWLRE/2L2QvXk2VLVbDJUpdqt7/qqnG+cLjt5sXbJM+eaI/bqExwZjIDDkRyxpmAQkWN/VeQ1a4a8Zs3w+KMPQcoIIYqi4MYbmjFY0oWySzAaDMhIT4PUNVR5dOS31vndCR6Cm2BKlfhikxmfbbKRDJZh7J2jeNiQQQQAy1eswr/fmorV6zYhxZGMB+4dg9EjhyKnSWPy+f0RWTHivtlut5MWDmPl6jX653MWREQKRQk47OYPEfS/euro/pO1iS3ScI3j6i2AN251BCRyJ7/6V33E0EEGRVUpljjpeuSAFUVRIjpk9F1PhBD4eMZn/M57H+HUmRLyB4KwWi0Qqgk31Jc86OYADWsXgiYJA15JRpUrgBY3NMba5fOxZdtOvP72e7x0xVoymUwY3L837hw1DM2b34BgIAh/IBC9AQSb3QaAsXXrDn3mrLm098BhoQghLSbjZxQKv3zmzMGDV4gU182bVl6tBXCu27jFBoPR2jUQ8KP5DTkYNrCfNmRQf8rLaxYfZ9M0DSBiRQiKHSoZcdUhbN+xixcvXYFVa9bj+Mkz5PFLSGFFo3pGmA2MCheDOMTPPvEwjp08Q9M/mQUhBPr16Y5xY0bipjatEApr8aMIAUTOk1QU3rXnO/nprHnY9u1ehQBYzaYFrHtfOnfy6PbatSwkrjNctQ3/1NTUZNWa2ddoMo7zBUIFobBmTnUk4dZO7Xj07UP1gt49hMORUus4ByFELekQAPw+H2/cvJUWLVmBDZs24+jJEkgWSHFYYTaZ4fV6uexyOfXt1Q13jxmJTje3hy4lvF5fnFiLxQKjwcAHDhXzZ1/O4/WbdihSMqwW4xqhh146c/LQ6uud2KvuomsiO7dFnqoaRgbD8g6fL9gOYDRuVB+FfXppI4cPRKeb2ysiOugspYQer48pfoYzADidThRt2MSLlizH6nWbyesLoFlOI0wYfyc639IRQijweD3g6NqKyWSC1WrB8WPH5eez58nVRZvVYEiHxWzYroD/cfb4voU1ZFVcz8T+FARHz4huyTWO6hONm7bqLkkZ6wuGhwYCoQyL2YjWLfIwcuhAbWD/viInp0m1VUdPn41pIDUsm3v1G4oNW7+lN17+M4YNGYSzJeehCIoeR2iA3WbFuZJzcvbcr+XiFWtVj9cPq9W8X2XtlTPHD3yG6uOMxLVY7lxXFowr3vULAOrVa5ZhSrIN1HQe6/MHeoR1XU1PdaBL545y1IjBsld+NyXZ4YiPxOqReB1/EgUDR/KmrbvoHy88hwGFBXBWVcFkMiIpKQmXLl3ieQuW6PMXr1ArKl2wmE3HVZX+dfbo3o8RWRS7JkWK67IOrnZ9NY9zGIULF+ZcwgV8DODjBrnNWysG2+hAMDxq8fI1zRevWCtyGmWjb+/u2u3DB9MtnToKNZaFSwmwjJ8PzWCQEEhxOOD3+3jW7Ln6rLmL1JLzZarFbCpNtptf91acm1paXu6+1kWKnxso+qbLcZfcEjA2aXpTvwbN2s1Ib9i83J7ZjDMateSCASN5ynvTwidPndI5il6FQ6WalM1Tpn4gjx8/If/12pvhm2/rzY6sGzizcauKxje0+1vdunUzq//cKAW/gPdPvlaf4PdceOPGjeuRMX1ISNfu8vkD3TVdUp00B7rddos+asRgfuW1t8WefcVi1LD+Wklpmbplxx4YjarPZjF/ENaqXis9ceLM9VrL/hwJrnl933vr1cZ5LdsBxjGBkHa7PxBsqigKrFYzCMSBUIh0TdPsNtNMEQq8cvr0keJfIrHXC8FXXGu+UpOkBg0aWFRbRoGm62N1nfuTEEnEco4qtJdOHzu0u0aMlb80Yq93iIhFViMrK7dRnaymHa6IsSJxq34WidmoGtu7L4gEsT9bq04Qm0ACCSSQQAIJJJBAAgkkkEACCSSQQAIJJJBAAgkkkEACCSSQQAIJJJBAAgkkkEACCSSQQAK/QPw/paSlfrouEeQAAAAASUVORK5CYII=" alt="SteelBrief">
+<a href="#" class="nav-logo">
+<svg><use href="#sb-logo"/></svg>
 <span class="nav-logo-name">SteelBrief</span>
 </a>
 <div class="nav-links">
-<a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#product">Product</a>
-<a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#how">How it works</a>
-<a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#pricing">Pricing</a>
-<a href="mailto:marcus@steelbrief.co">Contact</a>
-<a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#pricing" class="nav-cta">Start Free Trial</a>
+<a href="#product">Product</a>
+<a href="#how">How it works</a>
+<a href="#pricing">Pricing</a>
+<a href="mailto:hello@steelbrief.co">Contact</a>
+<a href="#pricing" class="nav-cta">Start Free Trial</a>
 </div>
 </div>
 </nav>
@@ -191,35 +205,35 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <div class="hero-glow2"></div>
 <div class="hero-inner">
 <div>
-<div class="hero-label"><span></span>Live market intelligence</div>
-<h1 class="hero-title">The steel market<br>brief that <span>pays for itself</span></h1>
-<p class="hero-sub">Every Monday morning, US procurement teams receive an auto-updated Google Sheet with HRC prices, import origin data, tariff alerts, and a specific buying recommendation. No dashboards, no logins — just the signal you need, in your inbox.</p>
+<div class="hero-label"><span></span>US steel market intelligence</div>
+<h1 class="hero-title">The US steel market,<br>read in <span>five minutes</span><br>every Monday</h1>
+<p class="hero-sub">Each week, US procurement teams get an auto-updated Google Sheet that consolidates steel price momentum, production fundamentals, energy costs, and live tariff activity — pulled from federal data sources into one clear read. No dashboards, no logins.</p>
 <div class="hero-actions">
-<a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#pricing" class="btn-primary">Start 2-week free trial</a>
-<a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#sample" class="btn-secondary">View sample report</a>
+<a href="#pricing" class="btn-primary">Start 2-week free trial</a>
+<a href="#sample" class="btn-secondary">View sample report</a>
 </div>
 </div>
 <div class="hero-card">
-<div class="hero-card-title">SteelBrief · Issue No. 25 · Jun 24, 2026</div>
+<div class="hero-card-title">SteelBrief · Issue No. 25 · Week ending Jun 25, 2026</div>
 <div class="ticker-row">
-<div class="ticker-top"><span class="ticker-name">HRC — USA Spot</span><span class="ticker-price">$1,178</span></div>
-<div class="ticker-meta"><span class="ticker-origin">FOB domestic mill</span><span class="ticker-chg chg-up">▲ +$9 · 9th week</span></div>
+<div class="ticker-top"><span class="ticker-name">Hot-Rolled Long (PPI)</span><span class="ticker-price">292.8</span></div>
+<div class="ticker-meta"><span class="ticker-origin">BLS index · monthly</span><span class="ticker-chg chg-up">▲ +10.0% YoY</span></div>
 </div>
 <div class="ticker-row">
-<div class="ticker-top"><span class="ticker-name">HRC — World Export</span><span class="ticker-price">$518</span></div>
-<div class="ticker-meta"><span class="ticker-origin">Global benchmark</span><span class="ticker-chg chg-up">▲ +0.6%</span></div>
+<div class="ticker-top"><span class="ticker-name">Cold-Rolled Sheet (PPI)</span><span class="ticker-price">423.8</span></div>
+<div class="ticker-meta"><span class="ticker-origin">BLS index · monthly</span><span class="ticker-chg chg-up">▲ +10.0% YoY</span></div>
 </div>
 <div class="ticker-row">
-<div class="ticker-top"><span class="ticker-name">HRC — W. Europe</span><span class="ticker-price">$785</span></div>
-<div class="ticker-meta"><span class="ticker-origin">4th consecutive drop</span><span class="ticker-chg chg-down">▼ −1.9%</span></div>
+<div class="ticker-top"><span class="ticker-name">Capacity Utilization</span><span class="ticker-price">80.3%</span></div>
+<div class="ticker-meta"><span class="ticker-origin">AISI · week of Jun 20</span><span class="ticker-chg chg-up">▲ Firm</span></div>
 </div>
 <div class="ticker-row">
-<div class="ticker-top"><span class="ticker-name">Rebar — USA FOB</span><span class="ticker-price">~$910</span></div>
-<div class="ticker-meta"><span class="ticker-origin">Long products</span><span class="ticker-chg chg-flat">▬ Holding</span></div>
+<div class="ticker-top"><span class="ticker-name">Henry Hub Gas</span><span class="ticker-price">$3.16</span></div>
+<div class="ticker-meta"><span class="ticker-origin">EIA · $/MMBtu</span><span class="ticker-chg chg-flat">▲ +2.6% wk</span></div>
 </div>
 <div class="card-footer">
-<span class="card-source">SteelBenchmarker · AISI · US Census Bureau</span>
-<span class="card-badge">Bullish</span>
+<span class="card-source">FRED · AISI · EIA · USITC</span>
+<span class="card-badge">Updated weekly</span>
 </div>
 </div>
 </div>
@@ -228,10 +242,10 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <!-- STATS -->
 <div class="stats">
 <div class="stats-inner">
-<div class="stat-item"><div class="stat-num"><span>$</span>1,178</div><div class="stat-label">HRC spot this week</div></div>
-<div class="stat-item"><div class="stat-num">9<span>th</span></div><div class="stat-label">consecutive increase</div></div>
-<div class="stat-item"><div class="stat-num"><span>$</span>299</div><div class="stat-label">per month, all-in</div></div>
-<div class="stat-item"><div class="stat-num">52</div><div class="stat-label">weeks of price history</div></div>
+<div class="stat-item"><div class="stat-num"><span>+</span>10.0%</div><div class="stat-label">HRC price index, YoY</div></div>
+<div class="stat-item"><div class="stat-num">80.3<span>%</span></div><div class="stat-label">capacity utilization</div></div>
+<div class="stat-item"><div class="stat-num"><span>$</span>99</div><div class="stat-label">per month, all-in</div></div>
+<div class="stat-item"><div class="stat-num">52</div><div class="stat-label">weeks of history, accruing</div></div>
 </div>
 </div>
 
@@ -240,50 +254,50 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <div class="section-inner">
 <div class="section-header">
 <div class="section-eyebrow">What you get</div>
-<h2 class="section-title">Five data layers.<br>One Google Sheet. Every Monday.</h2>
-<p class="section-sub">Built for procurement managers who need a clear signal, not another platform to log into.</p>
+<h2 class="section-title">Four data layers.<br>One Google Sheet. Every Monday.</h2>
+<p class="section-sub">Built for procurement managers who need a clear read on the market — not another platform to log into.</p>
 </div>
 <div class="features-grid">
 <div class="feat-card">
 <div class="feat-icon fi-orange">
 <svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.8" stroke-linecap="round">
-<rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path>
+<path d="M3 3v18h18"></path><path d="M7 16l4-4 4 4 4-6"></path>
 </svg>
 </div>
-<div class="feat-title">Weekly Brief</div>
-<div class="feat-desc">HRC, rebar, and scrap prices with week-on-week change, trend direction, and a specific buying recommendation. Delivered every Monday at 9 AM EST.</div>
+<div class="feat-title">Price &amp; Production Brief</div>
+<div class="feat-desc">Steel price momentum (hot-rolled and cold-rolled indices, month-over-month and year-over-year) alongside weekly domestic output and capacity utilization. A factual read of where the market stands.</div>
 <ul class="feat-list">
-<li>US domestic + global benchmarks</li>
-<li>Trend classification and analyst note</li>
-<li>Actionable insight for the week ahead</li>
+<li>BLS producer price indices via FRED</li>
+<li>AISI weekly production &amp; utilization</li>
+<li>Descriptive market read — no hype</li>
 </ul>
 </div>
 <div class="feat-card">
 <div class="feat-icon fi-teal">
 <svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round">
-<path d="M3 3v18h18"></path><path d="M7 16l4-4 4 4 4-6"></path>
+<path d="M12 2v6m0 8v6M2 12h6m8 0h6"></path><circle cx="12" cy="12" r="3"></circle>
 </svg>
 </div>
-<div class="feat-title">52-Week Price History</div>
-<div class="feat-desc">Every week's data accumulates in your sheet. Track the full price cycle, identify patterns, and time your contracts against historical context — not just last week's number.</div>
+<div class="feat-title">Energy Cost &amp; Tariff Watch</div>
+<div class="feat-desc">Henry Hub natural gas and industrial electricity — the leading cost inputs for electric-arc-furnace mills — plus live USITC steel-product proceedings: antidumping reviews, safeguards, and Section 232 activity.</div>
 <ul class="feat-list">
-<li>HRC, rebar, scrap over 52 weeks</li>
-<li>Auto-updated, no manual entry</li>
-<li>Built for contract timing decisions</li>
+<li>EIA energy benchmarks</li>
+<li>USITC trade actions via Federal Register</li>
+<li>Early signal on cost &amp; supply risk</li>
 </ul>
 </div>
 <div class="feat-card">
 <div class="feat-icon fi-navy">
 <svg viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="1.8" stroke-linecap="round">
-<circle cx="12" cy="12" r="10"></circle><path d="M12 8v4l3 3"></path>
+<rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path>
 </svg>
 </div>
-<div class="feat-title">Import Tracker + Pattern Alerts</div>
-<div class="feat-desc">Weekly import volumes by origin country and HS code — including HS 7306 tube &amp; pipe. Plus AI-generated alerts when a historical price pattern repeats.</div>
+<div class="feat-title">Accumulating 52-Week History</div>
+<div class="feat-desc">Every week's data stays in your sheet and builds a clean, consolidated time series no free source keeps in one place. Track the full cycle and time your contracts against real history — not just last week's number.</div>
 <ul class="feat-list">
-<li>HS 7213 · 7214 · 7306 coverage</li>
-<li>Top import origins ranked weekly</li>
-<li>Tariff Monitor: Section 232, USITC filings</li>
+<li>Rolling 52-week series, auto-updated</li>
+<li>No manual entry, no maintenance</li>
+<li>Built for contract-timing decisions</li>
 </ul>
 </div>
 </div>
@@ -295,7 +309,7 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <div class="section-inner">
 <div class="section-header" style="text-align:center;max-width:520px;margin:0 auto 52px">
 <div class="section-eyebrow">How it works</div>
-<h2 class="section-title">From first email to weekly signal in three steps</h2>
+<h2 class="section-title">From first email to weekly read in three steps</h2>
 </div>
 <div class="steps-grid">
 <div class="step">
@@ -306,12 +320,12 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <div class="step step-active">
 <div class="step-num">2</div>
 <div class="step-title">Two-week free trial</div>
-<div class="step-desc">We share a live Google Sheet with your email. Two consecutive Mondays, the brief arrives automatically. Experience the product before any commitment.</div>
+<div class="step-desc">We share a live Google Sheet with your email. For two consecutive Mondays, the brief arrives automatically. Experience the product before any commitment.</div>
 </div>
 <div class="step">
 <div class="step-num">3</div>
 <div class="step-title">Subscribe when it pays off</div>
-<div class="step-desc">If the data changes how you think about your next contract decision, continue at $299/month. Cancel with one email, any time.</div>
+<div class="step-desc">If it sharpens how you think about your next contract decision, continue at $99/month. Cancel with one email, any time.</div>
 </div>
 </div>
 </div>
@@ -322,9 +336,9 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <div class="dark-inner">
 <div>
 <div class="section-eyebrow">Sample report</div>
-<h2 class="section-title light">Data your competitors<br>are already watching</h2>
-<p class="section-sub light" style="margin-bottom:28px">The sample shows this week's price data in full. Import origin breakdown, pattern analysis, and historical tabs are subscriber-only.</p>
-<a href="mailto:marcus@steelbrief.co?subject=Sample%20report%20request" class="btn-primary">Request this week's sample</a>
+<h2 class="section-title light">The week's data,<br>consolidated and sourced</h2>
+<p class="section-sub light" style="margin-bottom:28px">The sample shows this week's price momentum, production, and energy data in full. Trade-policy detail and the accumulating 52-week history are part of the live weekly edition.</p>
+<a href="mailto:hello@steelbrief.co?subject=Sample%20report%20request" class="btn-primary">Request this week's sample</a>
 </div>
 <div class="sample-preview">
 <div class="preview-bar">
@@ -332,18 +346,17 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <span class="preview-badge">SAMPLE</span>
 </div>
 <table class="preview-table">
-<thead><tr><th>Product</th><th class="r">Price</th><th class="r">WoW</th></tr></thead>
+<thead><tr><th>Metric</th><th class="r">Latest</th><th class="r">Change</th></tr></thead>
 <tbody>
-<tr><td>HRC USA Spot</td><td class="r">$1,178</td><td class="up">+0.8%</td></tr>
-<tr><td>HRC World Export</td><td class="r">$518</td><td class="up">+0.6%</td></tr>
-<tr><td>HRC W. Europe</td><td class="r">$785</td><td class="dn">−1.9%</td></tr>
-<tr><td>Rebar USA</td><td class="r">~$910</td><td class="fl">flat</td></tr>
+<tr><td>Hot-Rolled Long (PPI)</td><td class="r">292.8</td><td class="up">+10.0% YoY</td></tr>
+<tr><td>Cold-Rolled Sheet (PPI)</td><td class="r">423.8</td><td class="up">+10.0% YoY</td></tr>
+<tr><td>Capacity Utilization</td><td class="r">80.3%</td><td class="fl">firm</td></tr>
+<tr><td>Henry Hub Gas</td><td class="r">$3.16</td><td class="fl">+2.6% wk</td></tr>
 </tbody>
 </table>
-<div class="preview-locked">— Import origin breakdown &amp; pattern analysis: subscriber only —</div>
+<div class="preview-locked">— Trade-policy alerts &amp; accumulating 52-week history: in the weekly edition —</div>
 </div>
 </div>
-
 </section>
 
 <!-- PRICING -->
@@ -360,35 +373,35 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <div class="price-amount">$0 <span>/ 2 weeks</span></div>
 <div class="price-desc">No credit card required. Full access to the subscriber sheet for two consecutive Mondays.</div>
 <ul class="price-items">
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>All 5 Google Sheet tabs</li>
+<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>All Google Sheet tabs</li>
 <li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Two full Monday deliveries</li>
 <li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>No commitment, cancel with one email</li>
 </ul>
-<a href="mailto:marcus@steelbrief.co?subject=Trial%20request" class="price-btn price-btn-outline">Start free trial</a>
+<a href="mailto:hello@steelbrief.co?subject=Trial%20request" class="price-btn price-btn-outline">Start free trial</a>
 </div>
 <div class="price-card featured">
-<div class="price-label featured">Monthly subscription</div>
-<div class="price-amount">$299 <span>/ month</span></div>
+<div class="price-label featured">Solo</div>
+<div class="price-amount">$99 <span>/ month</span></div>
 <div class="price-desc">Everything in the trial, every week, indefinitely. Cancel anytime.</div>
 <ul class="price-items">
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Weekly Brief — every Monday 9 AM EST</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>52-week price history (accumulating)</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Import tracker — HS 7213, 7214, 7306</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Tariff monitor — Section 232, USITC</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Pattern alerts — AI-generated signals</li>
+<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Weekly brief — every Monday</li>
+<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Price momentum + production fundamentals</li>
+<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Energy cost monitor</li>
+<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>USITC trade-policy &amp; tariff watch</li>
+<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Accumulating 52-week history</li>
 </ul>
-<a href="mailto:marcus@steelbrief.co?subject=Subscribe" class="price-btn price-btn-primary">Get started</a>
+<a href="REPLACE_WITH_LEMON_SQUEEZY_CHECKOUT_URL" class="price-btn price-btn-primary">Get started</a>
 </div>
 <div class="price-card">
-<div class="price-label">Annual plan</div>
+<div class="price-label">Team</div>
 <div class="price-amount">$249 <span>/ month</span></div>
-<div class="price-desc">Billed annually at $2,988/year. Best for teams with ongoing procurement needs.</div>
+<div class="price-desc">For procurement teams. Same brief, shared across up to five colleagues.</div>
 <ul class="price-items">
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Everything in monthly</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Save $600 versus monthly</li>
+<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Everything in Solo</li>
+<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Up to 5 users on one sheet</li>
 <li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Priority email response</li>
 </ul>
-<a href="mailto:marcus@steelbrief.co?subject=Annual%20plan" class="price-btn price-btn-outline">Contact us</a>
+<a href="mailto:hello@steelbrief.co?subject=Team%20plan" class="price-btn price-btn-outline">Contact us</a>
 </div>
 </div>
 </div>
@@ -397,11 +410,11 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <!-- CTA BANNER -->
 <div class="cta-banner">
 <div class="cta-inner">
-<h2 class="cta-title">HRC is in its ninth<br>consecutive increase.</h2>
-<p class="cta-sub">Procurement teams who know the historical pattern are making better contract timing decisions right now. Get this week's brief, free.</p>
+<h2 class="cta-title">Steel prices are 10%<br>higher than a year ago.</h2>
+<p class="cta-sub">Procurement teams tracking the full picture — price, production, energy, and trade risk — make sharper contract-timing calls. Get this week's brief, free.</p>
 <div class="cta-actions">
-<a href="mailto:marcus@steelbrief.co?subject=Sample%20report%20request" class="btn-primary">Request this week's sample</a>
-<a href="mailto:marcus@steelbrief.co?subject=Trial%20request" class="btn-secondary">Start 2-week trial</a>
+<a href="mailto:hello@steelbrief.co?subject=Sample%20report%20request" class="btn-primary">Request this week's sample</a>
+<a href="mailto:hello@steelbrief.co?subject=Trial%20request" class="btn-secondary">Start 2-week trial</a>
 </div>
 <p class="cta-note">No credit card. No account. Just the data.</p>
 </div>
@@ -413,34 +426,33 @@ footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,2
 <div class="footer-top">
 <div>
 <div class="footer-brand">
-<img src="data:image/png;base64,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" alt="SteelBrief">
+<svg><use href="#sb-logo"/></svg>
 <span class="footer-brand-name">SteelBrief</span>
 </div>
-<p class="footer-tagline">Weekly US steel market intelligence for procurement managers and distributors. Data sourced from SteelBenchmarker, US Census Bureau, USITC, and AISI.</p>
+<p class="footer-tagline">Weekly US steel market intelligence for procurement managers and distributors. Data sourced from the US Bureau of Labor Statistics (FRED), AISI, the US Energy Information Administration, and the USITC.</p>
 </div>
 <div>
 <div class="footer-col-title">Product</div>
 <ul class="footer-links">
-<li><a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#product">What you get</a></li>
-<li><a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#how">How it works</a></li>
-<li><a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#sample">Sample report</a></li>
-<li><a href="file:///C:/Users/lucas/Downloads/steelbrief_landing.html#pricing">Pricing</a></li>
+<li><a href="#product">What you get</a></li>
+<li><a href="#how">How it works</a></li>
+<li><a href="#sample">Sample report</a></li>
+<li><a href="#pricing">Pricing</a></li>
 </ul>
 </div>
 <div>
 <div class="footer-col-title">Contact</div>
 <ul class="footer-links">
-<li><a href="mailto:marcus@steelbrief.co">marcus@steelbrief.co</a></li>
+<li><a href="mailto:hello@steelbrief.co">hello@steelbrief.co</a></li>
 <li><a href="https://linkedin.com/in/lucasneumann">LinkedIn</a></li>
 </ul>
 </div>
 </div>
 <div class="footer-bottom">
-<span>© 2026 SteelBrief. All rights reserved.</span>
+<span>© 2026 SteelBrief. All rights reserved. Price figures are producer price indices, not absolute dollars per ton.</span>
 <span>steelbrief.co</span>
 </div>
 </div>
 </footer>
-
 
 </body></html>
