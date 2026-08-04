@@ -1,488 +1,576 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SteelBrief — US Steel Market Intelligence</title>
-<meta name="description" content="Weekly US steel market intelligence for procurement teams. Prices, production, energy costs and tariff activity — one 5-minute brief, every Monday. $99/month.">
-<!-- Social link previews (cold email / LinkedIn). Upload the circular PNG logo to your site root as logo.png -->
-<meta property="og:title" content="SteelBrief — US Steel Market Intelligence">
-<meta property="og:description" content="The US steel market, read in five minutes every Monday. Prices, production, energy and tariffs from named federal sources.">
-<meta property="og:url" content="https://steelbrief.co/">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://steelbrief.co/logo.png">
-<link rel="icon" type="image/png" href="/logo.png">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SteelBrief — Weekly US steel price brief for fabricators</title>
+<meta name="description" content="You quote fixed-price work today and buy the steel weeks later. SteelBrief tracks what the market does in between — mill price moves, production, energy and trade docket, in two pages every Monday.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --navy:#0A1628;--navy2:#0F2040;--navy3:#162236;
-  --orange:#F97316;--orange2:#EA6A0E;
-  --teal:#1D9E75;--teal2:#17855F;
-  --silver:#C8D4E0;--muted:#64748B;--border:#DDE4ED;
-  --bg:#F4F7FA;--white:#FFFFFF;--text:#1A2535;
+  --ink:#0C1622;      /* deep navy-black, mill iron */
+  --steel:#1B2C42;    /* mid navy for panels */
+  --mill:#E8791A;     /* the SteelBrief orange, matches the PDF exactly */
+  --mill-dim:#C2621238;
+  --scale:#8A99AC;    /* mill scale grey */
+  --paper:#F4F6F8;
+  --white:#FFFFFF;
+  --rule:#D9DEE5;
+  --rule-dark:#26364C;
+  --text:#152232;
+  --muted:#5C6B7E;
+  --up:#1E7B45;
+  --down:#B93A2B;
+  --maxw:1120px;
 }
+*{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--white);line-height:1.6}
+body{
+  margin:0;background:var(--paper);color:var(--text);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,.display{font-family:Archivo,Inter,sans-serif;letter-spacing:-0.022em;line-height:1.06;margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+a{color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,22,40,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.07)}
-.nav-inner{max-width:1120px;margin:0 auto;padding:0 32px;height:64px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-logo img{width:36px;height:36px;border-radius:50%;display:block}
-.nav-logo-name{font-family:'Playfair Display',Georgia,serif;font-size:18px;font-weight:700;color:var(--white)}
-.nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{font-size:13px;color:rgba(255,255,255,0.7);text-decoration:none;font-weight:500;letter-spacing:0.02em;transition:color .2s}
-.nav-links a:hover{color:var(--white)}
-.nav-cta{background:var(--orange);color:var(--white) !important;font-size:13px;font-weight:600;padding:9px 20px;border-radius:6px;text-decoration:none;transition:background .2s}
-.nav-cta:hover{background:var(--orange2)}
+/* ── eyebrow label: a document device, not decoration ── */
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:500;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--mill);
+}
+.eyebrow.dim{color:var(--scale)}
 
-/* HERO */
-.hero{min-height:100vh;background:var(--navy);position:relative;display:flex;flex-direction:column;justify-content:center;overflow:hidden;padding-top:64px}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:60px 60px;opacity:.6}
-.hero-glow{position:absolute;top:-200px;right:-100px;width:700px;height:700px;background:radial-gradient(circle,rgba(249,115,22,0.12) 0%,transparent 65%);pointer-events:none}
-.hero-glow2{position:absolute;bottom:-100px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(29,158,117,0.08) 0%,transparent 65%);pointer-events:none}
-.hero-inner{max-width:1120px;margin:0 auto;padding:80px 32px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:2}
-.hero-label{display:inline-flex;align-items:center;gap:8px;background:rgba(249,115,22,0.12);border:1px solid rgba(249,115,22,0.3);color:var(--orange);font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:20px;margin-bottom:20px}
-.hero-label span{width:6px;height:6px;border-radius:50%;background:var(--orange);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-@media (prefers-reduced-motion: reduce){.hero-label span{animation:none}}
-.hero-title{font-family:'Playfair Display',Georgia,serif;font-size:50px;font-weight:700;color:var(--white);line-height:1.12;letter-spacing:-0.5px;margin-bottom:20px}
-.hero-title span{color:var(--orange)}
-.hero-sub{font-size:16px;color:rgba(255,255,255,0.65);line-height:1.65;margin-bottom:32px;max-width:480px}
-.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn-primary{background:var(--orange);color:var(--white);font-size:14px;font-weight:600;padding:13px 28px;border-radius:7px;text-decoration:none;transition:background .2s;display:inline-block}
-.btn-primary:hover{background:var(--orange2)}
-.btn-secondary{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);color:var(--white);font-size:14px;font-weight:500;padding:13px 28px;border-radius:7px;text-decoration:none;transition:all .2s;display:inline-block}
-.btn-secondary:hover{background:rgba(255,255,255,0.14)}
-.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:14px;padding:28px;backdrop-filter:blur(10px)}
-.hero-card-title{font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:18px}
-.ticker-row{display:flex;flex-direction:column;gap:3px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.07)}
-.ticker-row:last-of-type{border-bottom:none}
-.ticker-top{display:flex;justify-content:space-between;align-items:baseline}
-.ticker-name{font-size:12px;color:rgba(255,255,255,0.6);font-weight:500}
-.ticker-price{font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:500;color:var(--white)}
-.ticker-meta{display:flex;justify-content:space-between}
-.ticker-origin{font-size:10px;color:rgba(255,255,255,0.35)}
-.ticker-chg{font-family:'IBM Plex Mono',monospace;font-size:11px;font-weight:500}
-.chg-up{color:var(--teal)}.chg-down{color:#E24B4A}.chg-flat{color:#F59E42}
-.card-footer{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center}
-.card-source{font-size:10px;color:rgba(255,255,255,0.3)}
-.card-badge{background:rgba(29,158,117,0.15);border:1px solid var(--teal);color:var(--teal);font-size:10px;font-weight:600;letter-spacing:0.08em;padding:3px 10px;border-radius:4px}
+/* ── nav ── */
+header{position:sticky;top:0;z-index:60;background:rgba(12,22,34,.97);
+  backdrop-filter:saturate(160%) blur(8px);border-bottom:1px solid var(--rule-dark)}
+nav{display:flex;align-items:center;justify-content:space-between;height:66px}
+.logo{font-family:Archivo;font-weight:800;font-size:21px;color:#fff;letter-spacing:-0.03em;text-decoration:none}
+.logo span{color:var(--mill)}
+.navlinks{display:flex;gap:30px;align-items:center}
+.navlinks a{color:#B9C6D4;text-decoration:none;font-size:14.5px;font-weight:500}
+.navlinks a:hover{color:#fff}
+.btn{
+  display:inline-block;border-radius:2px;font-weight:600;text-decoration:none;
+  padding:13px 24px;font-size:15px;transition:transform .12s ease,background .15s ease;
+  border:1px solid transparent;font-family:Inter;
+}
+.btn:active{transform:translateY(1px)}
+.btn-mill{background:var(--mill);color:#fff}
+.btn-mill:hover{background:#D26E14}
+.btn-ghost{background:transparent;color:#fff;border-color:#3B4E67}
+.btn-ghost:hover{border-color:#61758F}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#1B2C42}
+.btn-line{background:transparent;color:var(--text);border-color:var(--rule)}
+.btn-line:hover{border-color:var(--ink)}
+.btn-sm{padding:9px 17px;font-size:14px}
 
-/* STATS */
-.stats{background:var(--navy2);border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
-.stats-inner{max-width:1120px;margin:0 auto;padding:28px 32px;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.stat-item{text-align:center;padding:12px;border-right:1px solid rgba(255,255,255,0.08)}
-.stat-item:last-child{border-right:none}
-.stat-num{font-family:'IBM Plex Mono',monospace;font-size:26px;font-weight:500;color:var(--white);line-height:1}
-.stat-num span{color:var(--orange)}
-.stat-label{font-size:11px;color:rgba(255,255,255,0.45);margin-top:5px;letter-spacing:0.04em}
+/* ── hero ── */
+.hero{background:var(--ink);color:#fff;padding:76px 0 0;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(1000px 420px at 76% -8%,rgba(232,121,26,.13),transparent 62%)}
+.hero .wrap{position:relative;z-index:2}
+.h1{font-size:clamp(38px,5.6vw,66px);font-weight:800;color:#fff;max-width:16ch}
+.h1 em{font-style:normal;color:var(--mill);display:block}
+.lede{color:#B9C6D4;font-size:clamp(17px,1.9vw,20px);max-width:56ch;margin:24px 0 0;line-height:1.55}
+.lede b{color:#fff;font-weight:600}
+.herocta{display:flex;gap:13px;flex-wrap:wrap;margin:34px 0 0}
+.microcopy{color:#7B8CA1;font-size:13.5px;margin:15px 0 0}
 
-/* SECTIONS */
-.section{padding:88px 32px}
-.section-inner{max-width:1120px;margin:0 auto}
-.section-eyebrow{font-size:11px;font-weight:600;color:var(--orange);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px}
-.section-title{font-family:'Playfair Display',Georgia,serif;font-size:36px;font-weight:700;color:var(--text);line-height:1.2;margin-bottom:16px}
-.section-title.light{color:var(--white)}
-.section-sub{font-size:16px;color:var(--muted);max-width:540px;line-height:1.65}
-.section-sub.light{color:rgba(255,255,255,0.6)}
-.section-header{margin-bottom:52px}
+/* ── SIGNATURE: the gap ── */
+.gap{margin:62px 0 0;border-top:1px solid var(--rule-dark);padding:30px 0 66px}
+.gaphead{display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:30px}
+.gaphead p{margin:0;color:#8A99AC;font-size:14px}
+.rail{position:relative;padding:44px 0 8px}
+.railline{position:absolute;left:0;right:0;top:calc(50% + 6px);height:1px;background:var(--rule-dark)}
+.steps{display:flex;position:relative;z-index:2}
+.step{text-align:center;position:relative;flex:1 1 0;min-width:0}
+.step .dot{width:10px;height:10px;border-radius:50%;background:#3B4E67;margin:0 auto 14px;
+  border:2px solid var(--ink);position:relative;top:0}
+.step.on .dot{background:var(--mill);box-shadow:0 0 0 4px rgba(232,121,26,.18)}
+.step .wk{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:#7B8CA1;letter-spacing:.05em}
+.step .px{font-family:"IBM Plex Mono",monospace;font-size:clamp(15px,1.8vw,19px);font-weight:600;color:#E4EAF1;margin-top:5px}
+.step.on .px{color:var(--mill)}
+.step .mv{font-family:"IBM Plex Mono",monospace;font-size:11.5px;margin-top:3px}
+.step .mv{color:#6E8199}
+.step .mv.u{color:#3FA772}
+.bracket{
+  margin:30px 0 0;border:1px solid var(--rule-dark);border-radius:2px;
+  display:flex;align-items:stretch;
+}
+.bracket div{padding:19px 22px;flex:1 1 0}
+.bracket .mid{flex:0 0 auto;min-width:230px}
+.bracket .l{border-right:1px solid var(--rule-dark)}
+.bracket .r{border-left:1px solid var(--rule-dark)}
+.bracket .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:#7B8CA1;margin-bottom:6px}
+.bracket .val{font-family:Archivo;font-weight:700;font-size:clamp(19px,2.4vw,25px);color:#fff}
+.bracket .mid{text-align:center;background:rgba(232,121,26,.09)}
+.bracket .mid .val{color:var(--mill)}
+.bracket .note{color:#8A99AC;font-size:13.5px;margin-top:4px}
 
-/* FEATURES */
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.feat-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:32px;transition:box-shadow .2s,transform .2s}
-.feat-card:hover{box-shadow:0 8px 32px rgba(10,22,40,0.1);transform:translateY(-2px)}
-.feat-icon{width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.fi-orange{background:rgba(249,115,22,0.1)}
-.fi-teal{background:rgba(29,158,117,0.1)}
-.fi-navy{background:rgba(10,22,40,0.08)}
-.feat-icon svg{width:24px;height:24px}
-.feat-title{font-size:17px;font-weight:600;color:var(--text);margin-bottom:10px}
-.feat-desc{font-size:14px;color:var(--muted);line-height:1.6}
-.feat-list{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:6px}
-.feat-list li{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
-.feat-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--orange);flex-shrink:0}
+/* ── generic section ── */
+section{padding:86px 0}
+.sechead{max-width:62ch;margin-bottom:44px}
+.sechead h2{font-size:clamp(28px,3.6vw,42px);font-weight:700;margin:13px 0 0}
+.sechead p{color:var(--muted);margin:16px 0 0;font-size:17.5px}
+.alt{background:var(--white);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
 
-/* HOW IT WORKS */
-.how-bg{background:var(--bg)}
-.steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
-.steps-grid::before{content:'';position:absolute;top:28px;left:calc(16.666% + 28px);right:calc(16.666% + 28px);height:1px;background:var(--border);z-index:0}
-.step{text-align:center;padding:0 24px;position:relative;z-index:1}
-.step-num{width:56px;height:56px;border-radius:50%;background:var(--white);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;font-family:'IBM Plex Mono',monospace;font-size:18px;font-weight:500;color:var(--navy)}
-.step-active .step-num{background:var(--navy);border-color:var(--navy);color:var(--white)}
-.step-title{font-size:16px;font-weight:600;color:var(--text);margin-bottom:8px}
-.step-desc{font-size:14px;color:var(--muted);line-height:1.6}
+/* ── what lands: document rows, not floating cards ── */
+.rows{border-top:1px solid var(--rule)}
+.row{display:flex;gap:26px;
+  padding:28px 0;border-bottom:1px solid var(--rule);align-items:start}
+.row .num{font-family:"IBM Plex Mono",monospace;font-size:12.5px;color:var(--mill);
+  letter-spacing:.1em;padding-top:5px;flex:0 0 62px}
+.row .body{flex:1 1 0}
+.row .dec{flex:1.15 1 0}
+.row h3{font-size:20.5px;font-weight:700}
+.row .what{color:var(--muted);font-size:16px;margin:8px 0 0}
+.row .src{font-family:"IBM Plex Mono",monospace;font-size:12px;color:#8695A8;margin-top:11px;letter-spacing:.02em}
+.row .dec{background:var(--paper);border-left:2px solid var(--mill);padding:15px 18px;font-size:15.5px;color:var(--text)}
+.alt .row .dec{background:#F4F6F8}
+.row .dec b{font-weight:600}
 
-/* DARK SECTION */
-.dark-section{background:var(--navy);padding:88px 32px}
-.dark-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.sample-preview{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px}
-.preview-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.07)}
-.preview-title{font-size:13px;font-weight:600;color:var(--white)}
-.preview-badge{font-size:10px;background:rgba(249,115,22,0.15);border:1px solid rgba(249,115,22,0.3);color:var(--orange);padding:3px 8px;border-radius:3px;font-weight:600}
-.preview-table{width:100%;border-collapse:collapse}
-.preview-table th{font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:rgba(255,255,255,0.35);padding:0 6px 8px;text-align:left;font-weight:500;border-bottom:1px solid rgba(255,255,255,0.08)}
-.preview-table th.r{text-align:right}
-.preview-table td{font-size:12px;padding:8px 6px;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,255,255,0.75)}
-.preview-table td.r{text-align:right;font-family:'IBM Plex Mono',monospace;font-size:13px;font-weight:500;color:var(--white)}
-.preview-table td.up{color:var(--teal);font-family:'IBM Plex Mono',monospace;text-align:right}
-.preview-table td.dn{color:#E24B4A;font-family:'IBM Plex Mono',monospace;text-align:right}
-.preview-table td.fl{color:#F59E42;font-family:'IBM Plex Mono',monospace;text-align:right}
-.preview-locked{text-align:center;font-size:11px;color:rgba(255,255,255,0.3);padding:12px 0;font-style:italic}
+/* ── index panel ── */
+.indexpanel{background:var(--ink);color:#fff;border-radius:3px;overflow:hidden}
+.ipgrid{display:flex;align-items:stretch}
+.ipleft{flex:1.05 1 0}
+.ipright{flex:.95 1 0}
+.ipleft{padding:44px 42px}
+.ipleft h3{font-size:clamp(24px,3vw,32px);font-weight:700;color:#fff;margin:12px 0 0}
+.ipleft p{color:#B9C6D4;font-size:16.5px;margin:18px 0 0}
+.ipright{background:#101E2E;border-left:1px solid var(--rule-dark);padding:34px 36px}
+.sig{display:flex;justify-content:space-between;align-items:center;gap:16px;
+  padding:13px 0;border-bottom:1px solid var(--rule-dark);font-size:15px}
+.sig:last-of-type{border-bottom:0}
+.sig .nm{color:#C6D2E0}
+.sig .rd{font-family:"IBM Plex Mono",monospace;color:#8A99AC;font-size:13.5px;text-align:right}
+.sig .sc{font-family:"IBM Plex Mono",monospace;font-weight:600;width:22px;text-align:center;
+  border-radius:2px;padding:2px 0;font-size:13.5px}
+.sc.on{background:rgba(232,121,26,.16);color:var(--mill)}
+.sc.off{background:rgba(138,153,172,.13);color:#7B8CA1}
+.total{display:flex;justify-content:space-between;align-items:baseline;
+  margin-top:20px;padding-top:18px;border-top:1px solid var(--rule-dark)}
+.total .t{font-family:Archivo;font-weight:700;font-size:15px;color:#fff}
+.total .v{font-family:Archivo;font-weight:800;font-size:30px;color:var(--mill)}
+.readout{margin-top:14px;font-size:14px;color:#8A99AC;line-height:1.5}
 
-/* PRICING */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
-.price-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:32px}
-.price-card.featured{border-color:var(--orange);box-shadow:0 0 0 3px rgba(249,115,22,0.1)}
-.price-label{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:12px}
-.price-label.featured{color:var(--orange)}
-.price-amount{font-family:'IBM Plex Mono',monospace;font-size:36px;font-weight:500;color:var(--text);line-height:1}
-.price-amount span{font-size:14px;font-weight:400;color:var(--muted)}
-.price-annual{font-size:12px;color:var(--teal);font-weight:600;margin-top:8px}
-.price-desc{font-size:13px;color:var(--muted);margin:10px 0 20px;line-height:1.5}
-.price-items{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:24px}
-.price-items li{font-size:13px;color:var(--text);display:flex;gap:8px;align-items:flex-start}
-.price-items li svg{width:16px;height:16px;flex-shrink:0;margin-top:1px}
-.price-btn{display:block;text-align:center;padding:12px;border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s}
-.price-btn-outline{border:1.5px solid var(--border);color:var(--text)}
-.price-btn-outline:hover{border-color:var(--navy);background:var(--bg)}
-.price-btn-primary{background:var(--orange);color:var(--white)}
-.price-btn-primary:hover{background:var(--orange2)}
-.price-guarantee{text-align:center;font-size:12px;color:var(--muted);margin-top:24px}
-.price-guarantee strong{color:var(--teal)}
+/* ── steps ── */
+.hiw{display:flex;border-top:1px solid var(--rule)}
+.hiwstep{flex:1 1 0}
+.hiwstep{padding:32px 30px 34px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.hiwstep:last-child{border-right:0}
+.hiwstep .n{font-family:"IBM Plex Mono",monospace;color:var(--mill);font-size:12.5px;letter-spacing:.14em}
+.hiwstep h3{font-size:19px;font-weight:700;margin:14px 0 0}
+.hiwstep p{color:var(--muted);font-size:15.5px;margin:10px 0 0}
 
-/* CTA BANNER */
-.cta-banner{background:var(--navy);padding:88px 32px;text-align:center}
-.cta-inner{max-width:620px;margin:0 auto}
-.cta-title{font-family:'Playfair Display',Georgia,serif;font-size:40px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:16px}
-.cta-sub{font-size:16px;color:rgba(255,255,255,0.6);margin-bottom:32px;line-height:1.6}
-.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.cta-note{font-size:12px;color:rgba(255,255,255,0.3);margin-top:14px}
+/* ── methodology ── */
+.method{display:flex;border:1px solid var(--rule);background:var(--white)}
+.method > div{flex:1 1 0}
+.method > div{padding:32px 34px}
+.method > div:first-child{border-right:1px solid var(--rule)}
+.method h3{font-size:18px;font-weight:700}
+.method p{color:var(--muted);font-size:15.5px;margin:12px 0 0}
+.method ul{margin:14px 0 0;padding:0;list-style:none}
+.method li{color:var(--muted);font-size:15px;padding:7px 0 7px 20px;position:relative}
+.method li::before{content:"";position:absolute;left:0;top:15px;width:8px;height:1px;background:var(--mill)}
 
-/* FOOTER */
-footer{background:#060E1A;padding:48px 32px 24px;border-top:1px solid rgba(255,255,255,0.06)}
-.footer-inner{max-width:1120px;margin:0 auto}
-.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:36px}
-.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.footer-brand img{width:32px;height:32px;border-radius:50%;display:block}
-.footer-brand-name{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--white)}
-.footer-tagline{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.6;max-width:300px}
-.footer-col-title{font-size:11px;font-weight:600;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:8px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,0.45);text-decoration:none;transition:color .2s}
-.footer-links a:hover{color:var(--white)}
-.footer-bottom{padding-top:20px;border-top:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,0.25);flex-wrap:wrap;gap:8px}
+/* ── pricing ── */
+.plans{display:flex;gap:22px;max-width:800px;margin:0 auto;align-items:stretch}
+.plan{flex:1 1 0}
+.plan{background:var(--white);border:1px solid var(--rule);border-radius:3px;padding:32px 30px;display:flex;flex-direction:column}
+.plan.lead{border-color:var(--ink);box-shadow:0 1px 0 var(--ink)}
+.plan .pn{font-family:Archivo;font-weight:700;font-size:19px}
+.plan .pp{font-family:Archivo;font-weight:800;font-size:38px;margin:12px 0 0;letter-spacing:-.03em}
+.plan .pp small{font-family:Inter;font-size:15px;font-weight:500;color:var(--muted);letter-spacing:0}
+.plan .py{color:var(--muted);font-size:14px;margin:5px 0 0}
+.plan ul{list-style:none;padding:0;margin:22px 0 26px;flex:1}
+.plan li{font-size:15.5px;padding:8px 0 8px 22px;position:relative;color:var(--text)}
+.plan li::before{content:"";position:absolute;left:0;top:16px;width:9px;height:1px;background:var(--mill)}
+.guarantee{text-align:center;color:var(--muted);font-size:14px;margin-top:26px}
 
-/* RESPONSIVE */
-@media(max-width:860px){
-  .hero-inner,.dark-inner{grid-template-columns:1fr;gap:40px}
-  .hero-title{font-size:38px}
-  .features-grid,.pricing-grid{grid-template-columns:1fr}
-  .steps-grid{grid-template-columns:1fr;gap:32px}
-  .steps-grid::before{display:none}
-  .stats-inner{grid-template-columns:repeat(2,1fr);gap:16px}
-  .stat-item:nth-child(2){border-right:none}
-  .footer-top{grid-template-columns:1fr;gap:28px}
-  .nav-links a:not(.nav-cta){display:none}
+/* ── closing ── */
+.close{background:var(--ink);color:#fff;text-align:center;padding:88px 0}
+.close h2{font-size:clamp(28px,4vw,44px);font-weight:800;color:#fff;max-width:20ch;margin:0 auto}
+.close h2 em{font-style:normal;color:var(--mill)}
+.close p{color:#B9C6D4;max-width:52ch;margin:20px auto 0;font-size:17.5px}
+.close .herocta{justify-content:center}
+
+footer{background:#08111C;color:#7B8CA1;padding:52px 0 40px;font-size:14.5px}
+.fgrid{display:flex;gap:36px;flex-wrap:wrap}
+.fgrid > div:first-child{flex:1.6 1 240px}
+.fgrid > div{flex:1 1 150px}
+footer h4{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:#5C6B7E;margin:0 0 14px}
+footer a{color:#9DAABA;text-decoration:none;display:block;padding:5px 0}
+footer a:hover{color:#fff}
+.fbot{border-top:1px solid #17243400;margin-top:34px;padding-top:22px;font-size:13px;color:#5C6B7E;
+  border-top:1px solid #172434}
+
+/* ── motion: progressive enhancement.
+   Sem JS, nada fica escondido. A classe .js só é adicionada pelo script,
+   então conteúdo nunca depende de animação para existir. ── */
+.js .rise{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.js .rise.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .js .rise{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+:focus-visible{outline:2px solid var(--mill);outline-offset:3px}
+
+@media(max-width:900px){
+  .ipgrid,.method,.plans,.hiw{flex-direction:column}
+  .method > div:first-child{border-right:0;border-bottom:1px solid var(--rule)}
+  .hiwstep{border-right:0}
+  .row{flex-direction:column;gap:14px}
+  .row .num{padding-top:0}
+  .steps{flex-wrap:wrap;row-gap:26px}
+  .step{flex:1 1 33%}
+  .railline{display:none}
+  .bracket{flex-direction:column}
+  .bracket .mid{min-width:0}
+  .bracket .l{border-right:0;border-bottom:1px solid var(--rule-dark)}
+  .bracket .r{border-left:0;border-top:1px solid var(--rule-dark)}
+
+  .navlinks a:not(.btn){display:none}
 }
 </style>
 </head>
 <body>
 
-<!-- ============================================================
-  CHECKOUT LINKS — Freemius production links (live):
-  Solo trial / Solo direct / Team direct — already applied to all buttons.
-    https://checkout.freemius.com/product/33076/plan/54968/?trial=free  -> Solo plan, 14-day trial flow
-    https://checkout.freemius.com/product/33076/plan/54968/        -> Solo plan, direct checkout
-    https://checkout.freemius.com/product/33076/plan/54970/        -> Team plan, direct checkout
-============================================================ -->
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="logo" href="#top">Steel<span>Brief</span></a>
+      <div class="navlinks">
+        <a href="#lands">What lands Monday</a>
+        <a href="#index">The index</a>
+        <a href="#method">Methodology</a>
+        <a href="#pricing">Pricing</a>
+        <a class="btn btn-mill btn-sm" href="mailto:hello@steelbrief.co?subject=This%20week%27s%20brief">See this week's read</a>
+      </div>
+    </nav>
+  </div>
+</header>
 
-<!-- NAV -->
-<nav>
-<div class="nav-inner">
-<a href="#" class="nav-logo">
-<img src="/logo.png" alt="SteelBrief logo" width="36" height="36">
-<span class="nav-logo-name">SteelBrief</span>
-</a>
-<div class="nav-links">
-<a href="#product">Product</a>
-<a href="#how">How it works</a>
-<a href="#pricing">Pricing</a>
-<a href="mailto:hello@steelbrief.co">Contact</a>
-<a href="https://checkout.freemius.com/product/33076/plan/54968/?trial=free" class="nav-cta">Start Free Trial</a>
-</div>
-</div>
-</nav>
+<!-- ══ HERO ══ -->
+<div class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Weekly · US steel · Monday mornings</div>
+    <h1 class="h1" style="margin-top:20px">You quote it in June. You buy it in August.<em>That gap is your margin.</em></h1>
+    <p class="lede">Fabricators hold a fixed price while the steel is still weeks out. SteelBrief tracks what the market does in between — <b>mill price moves, production, energy and the trade docket</b> — and puts it on two pages every Monday.</p>
+    <div class="herocta">
+      <a class="btn btn-mill" href="mailto:hello@steelbrief.co?subject=This%20week%27s%20brief">See this week's read</a>
+      <a class="btn btn-ghost" href="#lands">What's in it</a>
+    </div>
+    <p class="microcopy">Two pages, PDF. No form, no account, no card. Reply and it's yours.</p>
 
-<!-- HERO -->
-<section class="hero">
-<div class="hero-grid"></div>
-<div class="hero-glow"></div>
-<div class="hero-glow2"></div>
-<div class="hero-inner">
-<div>
-<div class="hero-label"><span></span>US steel market intelligence</div>
-<h1 class="hero-title">The US steel market,<br>read in <span>five minutes</span><br>every Monday</h1>
-<p class="hero-sub">Each week, US procurement teams get an auto-updated Google Sheet that consolidates steel price momentum, production fundamentals, energy costs, and live tariff activity — pulled from federal data sources into one clear read. No dashboards, no logins.</p>
-<div class="hero-actions">
-<a href="https://checkout.freemius.com/product/33076/plan/54968/?trial=free" class="btn-primary">Start 14-day free trial</a>
-<a href="#sample" class="btn-secondary">View sample report</a>
+    <!-- SIGNATURE: the gap, drawn with real mill prices -->
+    <div class="gap">
+      <div class="gaphead">
+        <div>
+          <div class="eyebrow dim">Nucor HRC · published consumer spot price</div>
+          <p style="margin-top:9px">What the mill did while one quote was still open.</p>
+        </div>
+        <p class="mono" style="font-size:12.5px">$/short ton</p>
+      </div>
+
+      <div class="rail">
+        <div class="railline"></div>
+        <div class="steps">
+          <div class="step on rise" data-d="0">
+            <div class="dot"></div><div class="wk">JUN 22</div>
+            <div class="px">1,130</div><div class="mv u">▲ +$5</div>
+          </div>
+          <div class="step rise" data-d="90">
+            <div class="dot"></div><div class="wk">JUN 29</div>
+            <div class="px">1,130</div><div class="mv">— held</div>
+          </div>
+          <div class="step rise" data-d="180">
+            <div class="dot"></div><div class="wk">JUL 6</div>
+            <div class="px">1,130</div><div class="mv">— held</div>
+          </div>
+          <div class="step rise" data-d="270">
+            <div class="dot"></div><div class="wk">JUL 13</div>
+            <div class="px">1,135</div><div class="mv u">▲ +$5</div>
+          </div>
+          <div class="step rise" data-d="360">
+            <div class="dot"></div><div class="wk">JUL 27</div>
+            <div class="px">1,145</div><div class="mv u">▲ +$10</div>
+          </div>
+          <div class="step on rise" data-d="450">
+            <div class="dot"></div><div class="wk">AUG 3</div>
+            <div class="px">1,155</div><div class="mv u">▲ +$10</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bracket rise" data-d="560">
+        <div class="l">
+          <div class="lbl">Quote held</div>
+          <div class="val">6 weeks</div>
+          <div class="note">Fixed price out the door on June 22.</div>
+        </div>
+        <div class="mid">
+          <div class="lbl">Moved against you</div>
+          <div class="val">+$25 / ton</div>
+          <div class="note">Three weeks flat, then two increases.</div>
+        </div>
+        <div class="r">
+          <div class="lbl">Still ahead of you</div>
+          <div class="val">3–5 weeks</div>
+          <div class="note">Current mill lead time on new orders.</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-<div class="hero-card">
-<div class="hero-card-title">SteelBrief · Issue No. 29 · Week ending Jul 25, 2026</div>
-<div class="ticker-row">
-<div class="ticker-top"><span class="ticker-name">Hot-Rolled Long (PPI)</span><span class="ticker-price">312.2</span></div>
-<div class="ticker-meta"><span class="ticker-origin">BLS index · monthly</span><span class="ticker-chg chg-up">▲ +16.0% YoY</span></div>
-</div>
-<div class="ticker-row">
-<div class="ticker-top"><span class="ticker-name">Cold-Rolled Sheet (PPI)</span><span class="ticker-price">433.1</span></div>
-<div class="ticker-meta"><span class="ticker-origin">BLS index · monthly</span><span class="ticker-chg chg-up">▲ +11.6% YoY</span></div>
-</div>
-<div class="ticker-row">
-<div class="ticker-top"><span class="ticker-name">Capacity Utilization</span><span class="ticker-price">80.5%</span></div>
-<div class="ticker-meta"><span class="ticker-origin">AISI · week of Jul 25</span><span class="ticker-chg chg-up">▲ +1.2 pp WoW</span></div>
-</div>
-<div class="ticker-row">
-<div class="ticker-top"><span class="ticker-name">Diesel · Freight</span><span class="ticker-price">$5.13</span></div>
-<div class="ticker-meta"><span class="ticker-origin">EIA · $/gal on-highway</span><span class="ticker-chg chg-up">▲ +7.0% wk</span></div>
-</div>
-<div class="card-footer">
-<span class="card-source">FRED · AISI · EIA · USITC</span>
-<span class="card-badge">Updated weekly</span>
-</div>
-</div>
-</div>
+
+<!-- ══ WHAT LANDS ══ -->
+<section id="lands" class="alt">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">What lands Monday</div>
+      <h2>Four things that move the number you quote.</h2>
+      <p>Not a dashboard. Not a login. Two pages that tell you where the market stands and what it means for the bid on your desk.</p>
+    </div>
+
+    <div class="rows">
+      <div class="row rise">
+        <div class="num">01</div>
+        <div class="body">
+          <h3>Mill price &amp; production</h3>
+          <p class="what">Producer price indices for hot-rolled long and cold-rolled sheet, month over month and year over year, next to weekly domestic output and capacity utilization.</p>
+          <p class="src">BLS via FRED · AISI weekly</p>
+        </div>
+        <div class="dec"><b>What you do with it:</b> when utilization sits above 80% and rising, the mill has room to hold price. Below it and falling, you have room to push back.</div>
+      </div>
+
+      <div class="row rise">
+        <div class="num">02</div>
+        <div class="body">
+          <h3>Energy and freight</h3>
+          <p class="what">Henry Hub natural gas and industrial electricity — the input costs for electric-arc mills — alongside on-highway diesel, the cost of getting material to your yard.</p>
+          <p class="src">EIA via FRED</p>
+        </div>
+        <div class="dec"><b>What you do with it:</b> gas under the surcharge line means near-term surcharge risk is low. Diesel climbing on its own means the freight leg, not the furnace, is what's moving your delivered cost.</div>
+      </div>
+
+      <div class="row rise">
+        <div class="num">03</div>
+        <div class="body">
+          <h3>Trade docket</h3>
+          <p class="what">Live USITC steel-product proceedings — antidumping institutions, five-year reviews, Section 232 activity — with the origins named and the stage of each case flagged.</p>
+          <p class="src">USITC via Federal Register</p>
+        </div>
+        <div class="dec"><b>What you do with it:</b> an institution is the earliest stage of a case, when sourcing still has room to adjust. A final review is when the door is closing.</div>
+      </div>
+
+      <div class="row rise">
+        <div class="num">04</div>
+        <div class="body">
+          <h3>Accumulating history</h3>
+          <p class="what">Every week's figures stay in your sheet and build a consolidated 52-week series — price, production and energy in one place, which no free source keeps together.</p>
+          <p class="src">Rolling series · no manual entry</p>
+        </div>
+        <div class="dec"><b>What you do with it:</b> when a customer asks why material went up, you have the dated record of what the market did between your quote and your purchase.</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- STATS -->
-<div class="stats">
-<div class="stats-inner">
-<div class="stat-item"><div class="stat-num"><span>+</span>16.0%</div><div class="stat-label">hot-rolled long index, YoY</div></div>
-<div class="stat-item"><div class="stat-num">80.5<span>%</span></div><div class="stat-label">capacity utilization</div></div>
-<div class="stat-item"><div class="stat-num"><span>$</span>99</div><div class="stat-label">per month, all-in</div></div>
-<div class="stat-item"><div class="stat-num">52</div><div class="stat-label">weeks of history, accruing</div></div>
-</div>
-</div>
-
-<!-- PRODUCT -->
-<section class="section" id="product">
-<div class="section-inner">
-<div class="section-header">
-<div class="section-eyebrow">What you get</div>
-<h2 class="section-title">Four data layers.<br>One Google Sheet. Every Monday.</h2>
-<p class="section-sub">Built for procurement managers who need a clear read on the market — not another platform to log into.</p>
-</div>
-<div class="features-grid">
-<div class="feat-card">
-<div class="feat-icon fi-orange">
-<svg viewBox="0 0 24 24" fill="none" stroke="#F97316" stroke-width="1.8" stroke-linecap="round">
-<path d="M3 3v18h18"></path><path d="M7 16l4-4 4 4 4-6"></path>
-</svg>
-</div>
-<div class="feat-title">Price &amp; Production Brief</div>
-<div class="feat-desc">Steel price momentum (hot-rolled and cold-rolled indices, month-over-month and year-over-year) alongside weekly domestic output and capacity utilization. A factual read of where the market stands.</div>
-<ul class="feat-list">
-<li>BLS producer price indices via FRED</li>
-<li>AISI weekly production &amp; utilization</li>
-<li>Descriptive market read — no hype</li>
-</ul>
-</div>
-<div class="feat-card">
-<div class="feat-icon fi-teal">
-<svg viewBox="0 0 24 24" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round">
-<path d="M12 2v6m0 8v6M2 12h6m8 0h6"></path><circle cx="12" cy="12" r="3"></circle>
-</svg>
-</div>
-<div class="feat-title">Energy Cost &amp; Tariff Watch</div>
-<div class="feat-desc">Henry Hub natural gas and industrial electricity — the leading cost inputs for electric-arc-furnace mills — plus live USITC steel-product proceedings: antidumping reviews, safeguards, and Section 232 activity.</div>
-<ul class="feat-list">
-<li>EIA energy benchmarks</li>
-<li>USITC trade actions via Federal Register</li>
-<li>Early signal on cost &amp; supply risk</li>
-</ul>
-</div>
-<div class="feat-card">
-<div class="feat-icon fi-navy">
-<svg viewBox="0 0 24 24" fill="none" stroke="#0A1628" stroke-width="1.8" stroke-linecap="round">
-<rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18M9 21V9"></path>
-</svg>
-</div>
-<div class="feat-title">Accumulating 52-Week History</div>
-<div class="feat-desc">Every week's data stays in your sheet and builds a clean, consolidated time series no free source keeps in one place. Track the full cycle and time your contracts against real history — not just last week's number.</div>
-<ul class="feat-list">
-<li>Rolling 52-week series, auto-updated</li>
-<li>No manual entry, no maintenance</li>
-<li>Built for contract-timing decisions</li>
-</ul>
-</div>
-</div>
-</div>
+<!-- ══ THE INDEX ══ -->
+<section id="index">
+  <div class="wrap">
+    <div class="indexpanel rise">
+      <div class="ipgrid">
+        <div class="ipleft">
+          <div class="eyebrow">The Cost Pressure Index</div>
+          <h3>One number for how hard the mill can push this week.</h3>
+          <p>Four signals, each scoring one when it crosses a published threshold. The rule is fixed, the thresholds are printed in every issue, and the number is recomputed from source data every Monday — never adjusted to fit a narrative.</p>
+          <p style="font-size:15px;color:#8A99AC">Four of four means every input points toward cost pressure and your leverage is at its narrowest. Zero means the opposite.</p>
+        </div>
+        <div class="ipright">
+          <div class="eyebrow dim" style="margin-bottom:16px">Week ending August 1, 2026</div>
+          <div class="sig"><span class="nm">Price momentum</span><span class="rd">+16.0% YoY</span><span class="sc on">1</span></div>
+          <div class="sig"><span class="nm">Capacity utilization</span><span class="rd">81.0% · above line</span><span class="sc on">1</span></div>
+          <div class="sig"><span class="nm">Natural gas</span><span class="rd">$2.63 · below line</span><span class="sc off">0</span></div>
+          <div class="sig"><span class="nm">New trade proceedings</span><span class="rd">3 in 30 days</span><span class="sc on">1</span></div>
+          <div class="total"><span class="t">COST PRESSURE ELEVATED</span><span class="v">3<span style="color:#4A5D75;font-size:19px">/4</span></span></div>
+          <p class="readout">Mills have room to hold price. The cost pressure this week is coming from freight, not the furnace — a bundled quote hides that, a separated one doesn't.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="section how-bg" id="how">
-<div class="section-inner">
-<div class="section-header" style="text-align:center;max-width:520px;margin:0 auto 52px">
-<div class="section-eyebrow">How it works</div>
-<h2 class="section-title">From first email to weekly read in three steps</h2>
-</div>
-<div class="steps-grid">
-<div class="step">
-<div class="step-num">1</div>
-<div class="step-title">Request a sample</div>
-<div class="step-desc">Email us or click below. We send you this week's full brief as a PDF — no form, no credit card, no account creation.</div>
-</div>
-<div class="step step-active">
-<div class="step-num">2</div>
-<div class="step-title">14-day free trial</div>
-<div class="step-desc">Start your trial in one click — no credit card required. We share the live Google Sheet with your email, and the brief arrives automatically for two consecutive Mondays.</div>
-</div>
-<div class="step">
-<div class="step-num">3</div>
-<div class="step-title">Subscribe when it pays off</div>
-<div class="step-desc">If it sharpens how you think about your next contract decision, continue at $99/month. Cancel anytime, self-serve — no phone calls, no hoops.</div>
-</div>
-</div>
-</div>
+<!-- ══ HOW IT WORKS ══ -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">How it works</div>
+      <h2>Ask, read, decide.</h2>
+      <p>No demo call, no onboarding, no procurement review. You'll know inside two Mondays whether it's worth $99.</p>
+    </div>
+    <div class="hiw">
+      <div class="hiwstep rise">
+        <div class="n">STEP 01</div>
+        <h3>Ask for this week's</h3>
+        <p>Reply to an email or click below. This week's full brief comes back as a two-page PDF. No form, no card, no account.</p>
+      </div>
+      <div class="hiwstep rise">
+        <div class="n">STEP 02</div>
+        <h3>Two Mondays free</h3>
+        <p>Start the trial in one click. You get the live sheet shared to your address and the brief lands automatically for two consecutive weeks.</p>
+      </div>
+      <div class="hiwstep rise">
+        <div class="n">STEP 03</div>
+        <h3>Keep it if it earns it</h3>
+        <p>If it changed how you thought about one bid, continue at $99/month. Cancel yourself, any time — no calls, no retention flow.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- SAMPLE PREVIEW -->
-<section class="dark-section" id="sample">
-<div class="dark-inner">
-<div>
-<div class="section-eyebrow">Sample report</div>
-<h2 class="section-title light">The week's data,<br>consolidated and sourced</h2>
-<p class="section-sub light" style="margin-bottom:28px">The sample shows this week's price momentum, production, and energy data in full. Trade-policy detail and the accumulating 52-week history are part of the live weekly edition.</p>
-<a href="mailto:hello@steelbrief.co?subject=Sample%20report%20request" class="btn-primary">Request this week's sample</a>
-</div>
-<div class="sample-preview">
-<div class="preview-bar">
-<span class="preview-title">SteelBrief · Weekly Brief No. 29</span>
-<span class="preview-badge">SAMPLE</span>
-</div>
-<table class="preview-table">
-<thead><tr><th>Metric</th><th class="r">Latest</th><th class="r">Change</th></tr></thead>
-<tbody>
-<tr><td>Hot-Rolled Long (PPI)</td><td class="r">312.2</td><td class="up">+16.0% YoY</td></tr>
-<tr><td>Cold-Rolled Sheet (PPI)</td><td class="r">433.1</td><td class="up">+11.6% YoY</td></tr>
-<tr><td>Capacity Utilization</td><td class="r">80.5%</td><td class="up">▲ +1.2 pp WoW</td></tr>
-<tr><td>Diesel · Freight</td><td class="r">$5.13</td><td class="up">▲ +7.0% wk</td></tr>
-</tbody>
-</table>
-<div class="preview-locked">— Trade-policy alerts &amp; accumulating 52-week history: in the weekly edition —</div>
-</div>
-</div>
+<!-- ══ METHODOLOGY ══ -->
+<section id="method">
+  <div class="wrap">
+    <div class="sechead">
+      <div class="eyebrow">Methodology &amp; corrections</div>
+      <h2>Every figure traces back to a named authority.</h2>
+      <p>If a number ends up in your bid, you should be able to see where it came from and what happens when it's wrong.</p>
+    </div>
+    <div class="method rise">
+      <div>
+        <h3>Where the numbers come from</h3>
+        <p>No proprietary or paywalled data is redistributed. Every figure in the brief traces to a public federal source, named in the issue where it appears.</p>
+        <ul>
+          <li>Producer price indices — US Bureau of Labor Statistics, via FRED</li>
+          <li>Weekly output and capacity utilization — American Iron and Steel Institute</li>
+          <li>Energy and freight benchmarks — US Energy Information Administration</li>
+          <li>Trade proceedings — US International Trade Commission, via the Federal Register</li>
+        </ul>
+      </div>
+      <div>
+        <h3>How they're produced</h3>
+        <p>Month-over-month, year-over-year and weekly changes are computed from source data, never estimated. The written read describes those figures and introduces no number the data doesn't contain.</p>
+        <ul>
+          <li>Every published figure is written straight from the source record</li>
+          <li>An automated check blocks publication if a figure can't be traced back</li>
+          <li>When a series is unavailable, the brief marks it — it doesn't infer a value</li>
+          <li>When a figure is corrected, the restatement is disclosed in the issue</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- PRICING -->
-<section class="section" id="pricing">
-<div class="section-inner">
-<div class="section-header" style="text-align:center;max-width:520px;margin:0 auto 52px">
-<div class="section-eyebrow">Pricing</div>
-<h2 class="section-title">Simple, transparent pricing</h2>
-<p class="section-sub" style="margin:0 auto">One decision. One monthly payment. Full access from day one of your trial.</p>
-</div>
-<div class="pricing-grid">
-<div class="price-card">
-<div class="price-label">Free trial</div>
-<div class="price-amount">$0 <span>/ 14 days</span></div>
-<div class="price-desc">No credit card required. Full access to the subscriber sheet for two consecutive Mondays.</div>
-<ul class="price-items">
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>All Google Sheet tabs</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Two full Monday deliveries</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>No commitment, cancel anytime</li>
-</ul>
-<a href="https://checkout.freemius.com/product/33076/plan/54968/?trial=free" class="price-btn price-btn-outline">Start free trial</a>
-</div>
-<div class="price-card featured">
-<div class="price-label featured">Solo</div>
-<div class="price-amount">$99 <span>/ month</span></div>
-<div class="price-annual">or $990/year — 2 months free</div>
-<div class="price-desc">Everything in the trial, every week, indefinitely. Cancel anytime.</div>
-<ul class="price-items">
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Weekly brief — every Monday</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Price momentum + production fundamentals</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Energy cost monitor</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>USITC trade-policy &amp; tariff watch</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Accumulating 52-week history</li>
-</ul>
-<a href="https://checkout.freemius.com/product/33076/plan/54968/" class="price-btn price-btn-primary">Get started</a>
-</div>
-<div class="price-card">
-<div class="price-label">Team</div>
-<div class="price-amount">$249 <span>/ month</span></div>
-<div class="price-annual">or $2,490/year — 2 months free</div>
-<div class="price-desc">For procurement teams. Same brief, shared across up to five colleagues.</div>
-<ul class="price-items">
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Everything in Solo</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Up to 5 users on one sheet</li>
-<li><svg viewBox="0 0 16 16" fill="none" stroke="#1D9E75" stroke-width="1.8" stroke-linecap="round"><polyline points="3,8.5 6.5,12 13,4"></polyline></svg>Priority email response</li>
-</ul>
-<a href="https://checkout.freemius.com/product/33076/plan/54970/" class="price-btn price-btn-outline">Get started</a>
-</div>
-</div>
-<p class="price-guarantee"><strong>30-day money-back guarantee</strong> on all plans · Secure checkout by Freemius · Cancel anytime, self-serve</p>
-</div>
+<!-- ══ PRICING ══ -->
+<section id="pricing" class="alt">
+  <div class="wrap">
+    <div class="sechead" style="text-align:center;margin-left:auto;margin-right:auto">
+      <div class="eyebrow">Pricing</div>
+      <h2>Less than an hour of shop time.</h2>
+      <p style="margin-left:auto;margin-right:auto">One decision, one monthly payment, full access from the first day of the trial.</p>
+    </div>
+
+    <div class="plans">
+      <div class="plan lead rise">
+        <div class="pn">Solo</div>
+        <div class="pp">$99 <small>/ month</small></div>
+        <div class="py">or $990/year — two months free</div>
+        <ul>
+          <li>The brief, every Monday morning</li>
+          <li>Mill price momentum and production</li>
+          <li>Energy and freight cost monitor</li>
+          <li>USITC trade docket, stage-flagged</li>
+          <li>Cost Pressure Index with published rule</li>
+          <li>Accumulating 52-week history</li>
+        </ul>
+        <a class="btn btn-dark" href="https://checkout.freemius.com/product/33076/plan/54968/?trial=free">Start with two free Mondays</a>
+      </div>
+
+      <div class="plan rise">
+        <div class="pn">Team</div>
+        <div class="pp">$249 <small>/ month</small></div>
+        <div class="py">or $2,490/year — two months free</div>
+        <ul>
+          <li>Everything in Solo</li>
+          <li>Up to five people on one sheet</li>
+          <li>For shops where estimating and purchasing both read it</li>
+          <li>Priority email response</li>
+        </ul>
+        <a class="btn btn-line" href="https://checkout.freemius.com/product/33076/plan/54970/">Get Team</a>
+      </div>
+    </div>
+    <p class="guarantee">30-day money-back guarantee · Secure checkout by Freemius · Cancel anytime, self-serve</p>
+  </div>
 </section>
-<!-- CTA BANNER -->
-<div class="cta-banner">
-<div class="cta-inner">
-<h2 class="cta-title">Steel prices are 10%<br>higher than a year ago.</h2>
-<p class="cta-sub">Procurement teams tracking the full picture — price, production, energy, and trade risk — make sharper contract-timing calls.
-<div class="cta-actions">
-<a href="https://checkout.freemius.com/product/33076/plan/54968/?trial=free" class="btn-primary">Start 14-day free trial</a>
-<a href="#sample" class="btn-secondary">View sample report</a>
-</div>
-<p class="cta-note">No credit card required · Cancel anytime · Secure checkout by Freemius</p>
-</div>
+
+<!-- ══ CLOSE ══ -->
+<div class="close">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">This Monday</div>
+    <h2 style="margin-top:16px">The mill tells you every week. <em>Somebody should be reading it.</em></h2>
+    <p>Nucor publishes its spot price Mondays. AISI publishes production. The USITC publishes the docket. It's all public — it's just not in anyone's inbox. That's the whole job.</p>
+    <div class="herocta">
+      <a class="btn btn-mill" href="mailto:hello@steelbrief.co?subject=This%20week%27s%20brief">See this week's read</a>
+      <a class="btn btn-ghost" href="https://checkout.freemius.com/product/33076/plan/54968/?trial=free">Start two free Mondays</a>
+    </div>
+    <p class="microcopy" style="text-align:center">No card required · Cancel anytime · Checkout by Freemius</p>
+  </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
-<div class="footer-inner">
-<div class="footer-top">
-<div>
-<div class="footer-brand">
-<img src="/logo.png" alt="SteelBrief logo" width="32" height="32">
-<span class="footer-brand-name">SteelBrief</span>
-</div>
-<p class="footer-tagline">Weekly US steel market intelligence for procurement teams — price momentum, production, energy costs and live tariff activity, from named federal sources.</p>
-</div>
-<div>
-<div class="footer-col-title">Product</div>
-<ul class="footer-links">
-<li><a href="#product">What you get</a></li>
-<li><a href="#how">How it works</a></li>
-<li><a href="#sample">Sample report</a></li>
-<li><a href="#pricing">Pricing</a></li>
-</ul>
-</div>
-<div>
-<div class="footer-col-title">Company</div>
-<ul class="footer-links">
-<li><a href="mailto:hello@steelbrief.co">Contact</a></li>
-<li><a href="mailto:hello@steelbrief.co?subject=Sample%20report%20request">Request a sample</a></li>
-<li><a href="mailto:hello@steelbrief.co?subject=Founding%20member%20seat">Founding member</a></li>
-</ul>
-</div>
-<div>
-<div class="footer-col-title">Sources</div>
-<ul class="footer-links">
-<li><a href="https://www.bls.gov/ppi/" target="_blank" rel="noopener">BLS PPI</a></li>
-<li><a href="https://www.steel.org/industry-data/" target="_blank" rel="noopener">AISI</a></li>
-<li><a href="https://www.eia.gov/" target="_blank" rel="noopener">EIA</a></li>
-<li><a href="https://www.usitc.gov/" target="_blank" rel="noopener">USITC</a></li>
-</ul>
-</div>
-</div>
-<div class="footer-bottom">
-<span>© 2026 SteelBrief. Data from public federal sources; provided for informational purposes, not investment advice.</span>
-<span>steelbrief.co</span>
-</div>
-</div>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#top" style="font-size:19px">Steel<span>Brief</span></a>
+        <p style="margin:14px 0 0;max-width:38ch;line-height:1.6">A weekly US steel price brief for fabricators, estimators and the shops that quote fixed-price work — from named federal sources, in two pages.</p>
+      </div>
+      <div>
+        <h4>The brief</h4>
+        <a href="#lands">What lands Monday</a>
+        <a href="#index">The index</a>
+        <a href="#method">Methodology</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:hello@steelbrief.co">hello@steelbrief.co</a>
+        <a href="mailto:hello@steelbrief.co?subject=This%20week%27s%20brief">Ask for this week's</a>
+        <h4 style="margin-top:20px">Sources</h4>
+        <p class="mono" style="font-size:12.5px;color:#5C6B7E;margin:0;line-height:1.9">BLS · AISI · EIA · USITC</p>
+      </div>
+    </div>
+    <div class="fbot">
+      © 2026 SteelBrief · steelbrief.co — Data from public federal sources. Coverage guidance for physical purchasing; not investment advice and not a recommendation regarding futures or other commodity interests.
+    </div>
+  </div>
 </footer>
 
+<script>
+(function(){
+  if(!('IntersectionObserver' in window)) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  document.documentElement.classList.add('js');
+  var els = document.querySelectorAll('.rise');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var d = parseInt(en.target.getAttribute('data-d') || '0', 10);
+        setTimeout(function(){ en.target.classList.add('in'); }, d);
+        io.unobserve(en.target);
+      }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(e){ io.observe(e); });
+})();
+</script>
 </body>
 </html>
